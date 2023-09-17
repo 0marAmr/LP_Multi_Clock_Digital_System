@@ -5,5 +5,9 @@
 *.jou
 *.str
 *.wdf
+*.db
+*.pb
+*.wdb
+*.prj
 xsim_1.c
 specs
