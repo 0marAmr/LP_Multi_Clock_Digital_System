@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Register_File_TB_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Register_File_TB" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="35.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="245.001 ns"></ZoomEndTime>
+      <Cursor1Time time="210.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="182"></NameColumnWidth>
+      <ValueColumnWidth column_width="139"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="/Register_File_TB/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Register_File_TB/RST" type="logic">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Register_File_TB/RdEn" type="logic">
+      <obj_property name="ElementShortName">RdEn</obj_property>
+      <obj_property name="ObjectShortName">RdEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Register_File_TB/WrEn" type="logic">
+      <obj_property name="ElementShortName">WrEn</obj_property>
+      <obj_property name="ObjectShortName">WrEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Register_File_TB/Address" type="array">
+      <obj_property name="ElementShortName">Address[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Address[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Register_File_TB/WrData" type="array">
+      <obj_property name="ElementShortName">WrData[7:0]</obj_property>
+      <obj_property name="ObjectShortName">WrData[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Register_File_TB/RdData" type="array">
+      <obj_property name="ElementShortName">RdData[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RdData[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Register_File_TB/RdData_Valid" type="logic">
+      <obj_property name="ElementShortName">RdData_Valid</obj_property>
+      <obj_property name="ObjectShortName">RdData_Valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Register_File_TB/REG0" type="array">
+      <obj_property name="ElementShortName">REG0[7:0]</obj_property>
+      <obj_property name="ObjectShortName">REG0[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Register_File_TB/REG1" type="array">
+      <obj_property name="ElementShortName">REG1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">REG1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Register_File_TB/REG2" type="array">
+      <obj_property name="ElementShortName">REG2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">REG2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Register_File_TB/REG3" type="array">
+      <obj_property name="ElementShortName">REG3[7:0]</obj_property>
+      <obj_property name="ObjectShortName">REG3[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Register_File_TB/uut/Reg_File" type="array">
+      <obj_property name="ElementShortName">Reg_File[0:16][7:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg_File[0:16][7:0]</obj_property>
+   </wvobject>
+</wave_config>

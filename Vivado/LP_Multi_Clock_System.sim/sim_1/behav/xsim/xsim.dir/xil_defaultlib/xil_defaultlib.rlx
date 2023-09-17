@@ -1,0 +1,9 @@
+0.7
+2020.2
+Oct 14 2022
+05:20:55
+F:/Digital_Track/Design_Projects/Low_Power_Configurable_Multi_Clock_Digital_System/TBs/submodules/ALU_TB.v,1694935331,verilog,,,,ALU_TB,,,,,,,,
+F:/Digital_Track/Design_Projects/Low_Power_Configurable_Multi_Clock_Digital_System/TBs/submodules/Register_File_TB.v,1694936680,verilog,,,,Register_File_TB,,,,,,,,
+F:/Digital_Track/Design_Projects/Low_Power_Configurable_Multi_Clock_Digital_System/Vivado/LP_Multi_Clock_System.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,
+F:/Digital_Track/Design_Projects/Low_Power_Configurable_Multi_Clock_Digital_System/rtl/ALU.v,1694931051,verilog,,F:/Digital_Track/Design_Projects/Low_Power_Configurable_Multi_Clock_Digital_System/TBs/submodules/ALU_TB.v,,ALU,,,,,,,,
+F:/Digital_Track/Design_Projects/Low_Power_Configurable_Multi_Clock_Digital_System/rtl/Register_File.v,1694936484,verilog,,F:/Digital_Track/Design_Projects/Low_Power_Configurable_Multi_Clock_Digital_System/TBs/submodules/Register_File_TB.v,,Register_File,,,,,,,,
