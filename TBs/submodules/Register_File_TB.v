@@ -1,44 +1,59 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
+// Company:
+// Engineer:
+//
 // Create Date: 30/7/2023 03:05:46 PM
-// Design Name: 
+// Design Name:
 // Module Name: Register_File_TB
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
+// Project Name:
+// Target Devices:
+// Tool Versions:
+// Description:
+//
+// Dependencies:
+//
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-// 
+//
 //////////////////////////////////////////////////////////////////////////////////
 
 
 module Register_File_TB;
-    localparam      REG_WIDTH = 16,                 /*data width of each register*/
-                    ADDR_WIDTH = 3,                 /*width of address line*/
+    localparam      REG_WIDTH = 8,                 /*data width of each register*/
+                    ADDR_WIDTH = 4,                 /*width of address line*/
                     FILE_DEPTH = 2 ** ADDR_WIDTH;    /*No of registers in reg file*/
-        
-    reg CLK, RST;
-    reg WrEn, RdEn;
-    reg [REG_WIDTH - 1: 0] WrData;
-    reg [ADDR_WIDTH - 1: 0] Address;
-    wire [REG_WIDTH - 1: 0] RdData;
-        
-    Register_File #(.ADDR_WIDTH(ADDR_WIDTH), .REG_WIDTH(REG_WIDTH)) uut  (
-    .CLK(CLK),
-    .RST(RST),
-    .WrEn(WrEn),
-    .RdEn(RdEn),
-    .WrData(WrData),
-    .Address(Address),
-    .RdData(RdData)
+
+    reg                          CLK;
+    reg                          RST;
+    reg                          RdEn;
+    reg                          WrEn;
+    reg     [ADDR_WIDTH-1:0]     Address;
+    reg     [REG_WIDTH-1:0]      WrData;
+    wire    [REG_WIDTH-1:0]      RdData;
+    wire                         RdData_Valid;   
+    wire    [REG_WIDTH-1:0]      REG0;           /*ALU Operand A*/
+    wire    [REG_WIDTH-1:0]      REG1;           /*ALU Operand B*/
+    wire    [REG_WIDTH-1:0]      REG2;           /*UART Config*/
+    wire    [REG_WIDTH-1:0]      REG3;
+
+    Register_File #(
+        .ADDR_WIDTH(ADDR_WIDTH),
+        .REG_WIDTH(REG_WIDTH)
+    ) uut  (
+        .CLK(CLK),
+        .RST(RST),
+        .RdEn(RdEn),
+        .WrEn(WrEn),
+        .Address(Address),
+        .WrData(WrData),
+        .RdData(RdData),
+        .RdData_Valid(RdData_Valid),
+        .REG0(REG0),
+        .REG1(REG1),
+        .REG2(REG2),
+        .REG3(REG3)
     );
 
         always #15 CLK = ~CLK;
@@ -87,12 +102,13 @@ module Register_File_TB;
 
             init_reg_file();
             reg_write(1,15);
+            reg_write(1,5);
+
+            reg_write(7,100);
+            reg_read(7);
             
-            reg_read(1);
-            
-            reg_write(20,100);
-            
-            reg_read(20);
+            reg_write(10,200);
+            reg_read(10);
 
             $stop;
         end
