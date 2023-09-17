@@ -1,19 +1,18 @@
 module ALU #(
     parameter   DATA_WIDTH = 8,
-                SELECTION_LINE = 4
+                ALU_FUN_WIDTH = 4
 ) (
-    input   wire                            CLK,
-    input   wire                            RST,
-    input   wire    [DATA_WIDTH- 1:0]       A,
-    input   wire    [DATA_WIDTH- 1:0]       B,
-    input   wire    [SELECTION_LINE-1:0]    ALU_FUN,
-    input   wire                            Enable,
-    output  reg     [2*DATA_WIDTH-1:0]      ALU_OUT,
-    output  reg                             OUT_Valid
+    input   wire                            i_CLK,
+    input   wire                            i_RST,
+    input   wire    [DATA_WIDTH- 1:0]       i_A,
+    input   wire    [DATA_WIDTH- 1:0]       i_B,
+    input   wire    [ALU_FUN_WIDTH-1:0]     i_ALU_FUN,
+    input   wire                            i_Enable,
+    output  reg     [2*DATA_WIDTH-1:0]      o_ALU_OUT,
+    output  reg                             o_OUT_Valid
 );
     reg [DATA_WIDTH - 1:0] ALU_result;
     
-    localparam ALU_FUN_WIDTH = 4;
 
     localparam [ALU_FUN_WIDTH-1:0]  Addition        = 4'b0000,
                                     Subtraction     = 4'b0001,
@@ -31,38 +30,38 @@ module ALU #(
                                     SHLA            = 4'b1101,
                                     SHRA            = 4'b1110;
     always @(*) begin
-        case (ALU_FUN)
-            Addition:       ALU_result = A + B;
-            Subtraction:    ALU_result = A - B;
-            Multiplication: ALU_result = A * B;
-            Division:       ALU_result = A / B;
-            AND:            ALU_result = A & B;
-            OR:             ALU_result = A | B;
-            NAND:           ALU_result = ~(A & B);
-            NOR:            ALU_result = ~(A | B);
-            XOR:            ALU_result = A ^ B;
-            XNOR:           ALU_result = ~(A ^ B);
-            AeqB:           ALU_result = A == B;
-            AgtB:           ALU_result = A > B;
-            AltB:           ALU_result = A < B;
-            SHLA:           ALU_result = A >> 1;
-            SHRA:           ALU_result = A << 1;
+        case (i_ALU_FUN)
+            Addition:       ALU_result = i_A + i_B;
+            Subtraction:    ALU_result = i_A - i_B;
+            Multiplication: ALU_result = i_A * i_B;
+            Division:       ALU_result = i_A / i_B;
+            AND:            ALU_result = i_A & i_B;
+            OR:             ALU_result = i_A | i_B;
+            NAND:           ALU_result = ~(i_A & i_B);
+            NOR:            ALU_result = ~(i_A | i_B);
+            XOR:            ALU_result = i_A ^ i_B;
+            XNOR:           ALU_result = ~(i_A ^ i_B);
+            AeqB:           ALU_result = i_A == i_B;
+            AgtB:           ALU_result = i_A > i_B;
+            AltB:           ALU_result = i_A < i_B;
+            SHLA:           ALU_result = i_A >> 1;
+            SHRA:           ALU_result = i_A << 1;
             default:        ALU_result= 0;
         endcase
     end
 
-    always @(posedge CLK) begin
-        if(~RST) begin
-            ALU_OUT <= 'b0;
-            OUT_Valid <= 'b0;
+    always @(posedge i_CLK or negedge i_RST) begin
+        if(~i_RST) begin
+            o_ALU_OUT <= 'b0;
+            o_OUT_Valid <= 'b0;
         end
-        else if (Enable)begin
-            ALU_OUT <= ALU_result;
-            OUT_Valid <= 'b1;
+        else if (i_Enable)begin
+            o_ALU_OUT <= ALU_result;
+            o_OUT_Valid <= 'b1;
         end
         else begin
-            ALU_OUT <= 'b0; 
-            OUT_Valid <= 'b0;
+            o_ALU_OUT <= 'b0; 
+            o_OUT_Valid <= 'b0;
         end
     end
     

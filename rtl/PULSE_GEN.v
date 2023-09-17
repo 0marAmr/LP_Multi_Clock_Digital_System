@@ -1,18 +1,19 @@
 module PULSE_GEN (
-    input   wire                        CLK,
-    input   wire                        RST,
-    input   wire                        pulse_en,
-    output  wire                        pulse_signal
+    input   wire                        i_CLK,
+    input   wire                        i_RST,
+    input   wire                        i_pulse_en,
+    output  wire                        o_pulse_signal
 );
+
     reg enable_flop;
-    always @(posedge CLK or negedge RST) begin
-        if(~RST) begin
+    always @(posedge i_CLK or negedge i_RST) begin
+        if(~i_RST) begin
             enable_flop<= 'b0;
         end
 		else begin
-			enable_flop <= pulse_en;
+			enable_flop <= i_pulse_en;
 		end
     end
-	assign pulse_signal = ~ enable_flop && pulse_en;
+	assign o_pulse_signal = ~ enable_flop && i_pulse_en;
 	
 endmodule

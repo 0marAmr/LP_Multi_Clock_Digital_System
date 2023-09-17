@@ -1,14 +1,14 @@
 module RST_SYNC #(
     parameter   NUM_STAGES  = 2
 )(
-    input   wire    CLK,
-    input   wire    RST,
-    output  wire    SYNC_RST
+    input   wire    i_CLK,
+    input   wire    i_RST,
+    output  wire    o_SYNC_RST
 );
 
     reg [NUM_STAGES-1:0] sync_chain;
-    always @(posedge CLK or negedge RST) begin
-        if (~RST) begin
+    always @(posedge i_CLK or negedge i_RST) begin
+        if (~i_RST) begin
                 sync_chain <= 'b0;
         end
         else begin
@@ -16,5 +16,5 @@ module RST_SYNC #(
         end
     end
 
-    assign SYNC_RST = sync_chain[0];
+    assign o_SYNC_RST = sync_chain[0];
 endmodule
