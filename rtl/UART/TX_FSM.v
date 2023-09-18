@@ -91,27 +91,11 @@ module TX_FSM (
             end  
             STOP : begin
                 /*NS Logic*/
-                if (Data_Valid) begin
-                    next_state <= START;
-                end
-                else begin
                     next_state <= IDLE;
-                end
                 
                 /*OP logic*/
                 busy = 'b1;
                 mux_sel = 'b01;
-
-                /*enable parity in case two frames are sent togeather (IDLE state is omitted) */
-                if(PAR_EN && Data_Valid) 
-                    par_en = 1'b1;    
-                else
-                    par_en = 1'b0;
-                 /*Load the serializer (in case IDLE is omitted)*/
-                 if(Data_Valid)
-                    load = 'b1;
-                 else
-                    load = 'b0;
             end 
             default : begin
                 next_state <= IDLE;
