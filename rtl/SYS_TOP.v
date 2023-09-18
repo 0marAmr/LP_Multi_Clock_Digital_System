@@ -79,9 +79,8 @@ module SYS_TOP  #(
     wire RX_Sync_Data_Valid;
     wire [DATA_WIDTH-1:0] FIFO_WR_DATA;
     wire FIFO_Wr_Inc;
-    wire FIFO_Full;
+    wire FIFO_FULL;
     wire Gate_En;
-    wire TX_Data_Valid;
     wire Clk_Div_En;
 
     SYS_CTRL #(
@@ -97,7 +96,7 @@ module SYS_TOP  #(
         .i_RdData_Valid(RdData_Valid),
         .i_RX_P_DATA(RX_Out_Sync),
         .i_RX_D_VLD(RX_Sync_Data_Valid),
-        .i_FIFO_FULL(FIFO_Full),
+        .i_FIFO_FULL(FIFO_FULL),
         .o_ALU_FUN(FUN),
         .o_Address(Addr),
         .o_WrData(Wr_D),
@@ -107,7 +106,6 @@ module SYS_TOP  #(
         .o_RdEn(RdEn),
         .o_ALU_EN(ALU_EN),
         .o_CLK_EN(Gate_En),
-        .o_TX_D_VLD(TX_Data_Valid),
         .o_clk_div_en(Clk_Div_En)
     );
 
@@ -127,10 +125,10 @@ module SYS_TOP  #(
         .DATA_WIDTH(DATA_WIDTH)
     ) U3_UART_INTERFACE (
         .i_TX_CLK(TX_CLK),
-        .i_RX_CLK(RX_CLK),
+        .i_RX_CLK(UART_CLK), // RX_CLK
         .i_RST(UART_SYNC_RST),
         .i_PAR_EN(UART_Config[0]),
-        .i_TX_Data_Valid(~FIFO_Empty && TX_Data_Valid),
+        .i_TX_Data_Valid(~FIFO_Empty),
         .i_PAR_TYP(UART_Config[0]),
         .i_TX_IN(FIFO_TX_RD_Data),
         .i_RX_IN(RX_IN),
@@ -154,7 +152,7 @@ module SYS_TOP  #(
         .i_W_RST(REF_SYNC_RST),
         .i_W_INC(FIFO_Wr_Inc),
         .i_WR_DATA(FIFO_WR_DATA),
-        .i_R_CLK(UART_CLK),
+        .i_R_CLK(TX_CLK),
         .i_R_RST(UART_SYNC_RST),
         .i_R_INC(Pulse_Gen_RD_INC),
         .o_FULL(FIFO_FULL),
@@ -167,7 +165,7 @@ module SYS_TOP  #(
     /////////////////////////////////////////////////////////////
  
     PULSE_GEN U5_RD_INC_PULSE_GEN (
-        .i_CLK(UART_CLK),
+        .i_CLK(TX_CLK),
         .i_RST(UART_SYNC_RST),
         .i_pulse_en(TX_Busy),
         .o_pulse_signal(Pulse_Gen_RD_INC)
@@ -244,7 +242,6 @@ module SYS_TOP  #(
         .o_Div_Ratio_OUT(RX_CLK_Div_Ratio)
     );
 
-
     ///////////////////////////////////////////////////////////////////
     //////////////////////////// Clock Gate ///////////////////////////
     ///////////////////////////////////////////////////////////////////
@@ -254,7 +251,5 @@ module SYS_TOP  #(
         .i_CLK_EN(Gate_En),
         .o_GATED_CLK(ALU_CLK)
     );
-
-
 
 endmodule
