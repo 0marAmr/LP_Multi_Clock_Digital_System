@@ -46,12 +46,12 @@ always #5 CLK_TB = ! CLK_TB ;
 					 
 DATA_SYNC  # ( .NUM_STAGES(NUM_STAGES_TB) , .BUS_WIDTH(BUS_WIDTH_TB) )  DUT
 (
-.CLK(CLK_TB),
-.RST(RST_TB),
-.unsync_bus(unsync_bus_TB),
-.sync_bus(sync_bus_TB),
-.bus_enable(bus_enable_TB),
-.enable_pulse(enable_pulse_TB)
+.i_CLK(CLK_TB),
+.i_RST(RST_TB),
+.i_unsync_bus(unsync_bus_TB),
+.o_sync_bus(sync_bus_TB),
+.i_bus_enable(bus_enable_TB),
+.o_enable_pulse(enable_pulse_TB)
 );
 
 

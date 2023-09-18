@@ -36,9 +36,9 @@ always #5 CLK_TB = ! CLK_TB ;
 					 
 RST_SYNC  # ( .NUM_STAGES(NUM_STAGES_TB) )  DUT
 (
-.CLK(CLK_TB),
-.RST(RST_TB),
-.SYNC_RST(SYNC_RST_TB)
+.i_CLK(CLK_TB),
+.i_RST(RST_TB),
+.o_SYNC_RST(SYNC_RST_TB)
 );
 
 endmodule

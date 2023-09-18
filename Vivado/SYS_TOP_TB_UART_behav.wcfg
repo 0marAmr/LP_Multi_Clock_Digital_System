@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="SYS_TOP_TB_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="SYS_TOP_TB" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="134.727 ns"></ZoomStartTime>
+      <ZoomEndTime time="193.778 ns"></ZoomEndTime>
+      <Cursor1Time time="159.727 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="230"></NameColumnWidth>
+      <ValueColumnWidth column_width="134"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/SYS_TOP_TB/UART_CLK_TB" type="logic">
+      <obj_property name="ElementShortName">UART_CLK_TB</obj_property>
+      <obj_property name="ObjectShortName">UART_CLK_TB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/i_TX_CLK" type="logic">
+      <obj_property name="ElementShortName">i_TX_CLK</obj_property>
+      <obj_property name="ObjectShortName">i_TX_CLK</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/i_RX_CLK" type="logic">
+      <obj_property name="ElementShortName">i_RX_CLK</obj_property>
+      <obj_property name="ObjectShortName">i_RX_CLK</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/RST_TB" type="logic">
+      <obj_property name="ElementShortName">RST_TB</obj_property>
+      <obj_property name="ObjectShortName">RST_TB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/RX_IN_TB" type="logic">
+      <obj_property name="ElementShortName">RX_IN_TB</obj_property>
+      <obj_property name="ObjectShortName">RX_IN_TB</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/TX_OUT_TB" type="logic">
+      <obj_property name="ElementShortName">TX_OUT_TB</obj_property>
+      <obj_property name="ObjectShortName">TX_OUT_TB</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/o_RX_Data_Valid" type="logic">
+      <obj_property name="ElementShortName">o_RX_Data_Valid</obj_property>
+      <obj_property name="ObjectShortName">o_RX_Data_Valid</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/o_RX_OUT" type="array">
+      <obj_property name="ElementShortName">o_RX_OUT[7:0]</obj_property>
+      <obj_property name="ObjectShortName">o_RX_OUT[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+</wave_config>

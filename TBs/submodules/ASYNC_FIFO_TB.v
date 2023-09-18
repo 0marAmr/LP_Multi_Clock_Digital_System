@@ -13,16 +13,16 @@ module ASYNC_FIFO_TB ;
     wire EMPTY_TB;
 
     ASYNC_FIFO DUT(
-        .W_CLK(W_CLK_TB),
-        .W_RST(W_RST_TB),
-        .R_CLK(R_CLK_TB),
-        .R_RST(R_RST_TB),
-        .W_INC(W_INC_TB),
-        .R_INC(R_INC_TB),
-        .WR_DATA(WR_DATA_TB),
-        .RD_DATA(RD_DATA_TB),
-        .FULL(FULL_TB),
-        .EMPTY(EMPTY_TB)
+        .i_W_CLK(W_CLK_TB),
+        .i_W_RST(W_RST_TB),
+        .i_R_CLK(R_CLK_TB),
+        .i_R_RST(R_RST_TB),
+        .i_W_INC(W_INC_TB),
+        .i_R_INC(R_INC_TB),
+        .i_WR_DATA(WR_DATA_TB),
+        .o_RD_DATA(RD_DATA_TB),
+        .o_FULL(FULL_TB),
+        .o_EMPTY(EMPTY_TB)
     );
 
     localparam W_CLK_TB_period =10 ;

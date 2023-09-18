@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="SYS_TOP_TB_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="SYS_TOP_TB" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="3,614.131 ns"></ZoomStartTime>
+      <ZoomEndTime time="4,003.632 ns"></ZoomEndTime>
+      <Cursor1Time time="3,934.131 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="230"></NameColumnWidth>
+      <ValueColumnWidth column_width="109"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="28" />
+   <wvobject fp_name="/SYS_TOP_TB/REF_CLK_TB" type="logic">
+      <obj_property name="ElementShortName">REF_CLK_TB</obj_property>
+      <obj_property name="ObjectShortName">REF_CLK_TB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/i_RX_CLK" type="logic">
+      <obj_property name="ElementShortName">i_RX_CLK</obj_property>
+      <obj_property name="ObjectShortName">i_RX_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/UART_CLK_TB" type="logic">
+      <obj_property name="ElementShortName">UART_CLK_TB</obj_property>
+      <obj_property name="ObjectShortName">UART_CLK_TB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/i_TX_CLK" type="logic">
+      <obj_property name="ElementShortName">i_TX_CLK</obj_property>
+      <obj_property name="ObjectShortName">i_TX_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U0_ALU/i_CLK" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">i_CLK</obj_property>
+      <obj_property name="ObjectShortName">i_CLK</obj_property>
+      <obj_property name="label">ALU_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/RST_TB" type="logic">
+      <obj_property name="ElementShortName">RST_TB</obj_property>
+      <obj_property name="ObjectShortName">RST_TB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/RX_IN_TB" type="logic">
+      <obj_property name="ElementShortName">RX_IN_TB</obj_property>
+      <obj_property name="ObjectShortName">RX_IN_TB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/TX_OUT_TB" type="logic">
+      <obj_property name="ElementShortName">TX_OUT_TB</obj_property>
+      <obj_property name="ObjectShortName">TX_OUT_TB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U2_CONTROLLER/present_state" type="array">
+      <obj_property name="ElementShortName">present_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">present_state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U2_CONTROLLER/CTRL_Reg_Addr" type="array">
+      <obj_property name="ElementShortName">CTRL_Reg_Addr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">CTRL_Reg_Addr[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U2_CONTROLLER/CTRL_Reg_Data1" type="array">
+      <obj_property name="ElementShortName">CTRL_Reg_Data1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">CTRL_Reg_Data1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U2_CONTROLLER/CTRL_Reg_Data2" type="array">
+      <obj_property name="ElementShortName">CTRL_Reg_Data2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">CTRL_Reg_Data2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U1_REG_FILE/Reg_File[0]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][7:0]</obj_property>
+      <obj_property name="label">OperA</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U1_REG_FILE/Reg_File[1]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[1][7:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][7:0]</obj_property>
+      <obj_property name="label">OperB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U2_CONTROLLER/o_CLK_EN" type="logic">
+      <obj_property name="ElementShortName">o_CLK_EN</obj_property>
+      <obj_property name="ObjectShortName">o_CLK_EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U2_CONTROLLER/o_WrEn" type="logic">
+      <obj_property name="ElementShortName">o_WrEn</obj_property>
+      <obj_property name="ObjectShortName">o_WrEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U4_ASYNCHRONOUS_FIFO/i_W_INC" type="logic">
+      <obj_property name="ElementShortName">i_W_INC</obj_property>
+      <obj_property name="ObjectShortName">i_W_INC</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U4_ASYNCHRONOUS_FIFO/i_R_INC" type="logic">
+      <obj_property name="ElementShortName">i_R_INC</obj_property>
+      <obj_property name="ObjectShortName">i_R_INC</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U4_ASYNCHRONOUS_FIFO/o_EMPTY" type="logic">
+      <obj_property name="ElementShortName">o_EMPTY</obj_property>
+      <obj_property name="ObjectShortName">o_EMPTY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/i_TX_Data_Valid" type="logic">
+      <obj_property name="ElementShortName">i_TX_Data_Valid</obj_property>
+      <obj_property name="ObjectShortName">i_TX_Data_Valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/o_busy" type="logic">
+      <obj_property name="ElementShortName">o_busy</obj_property>
+      <obj_property name="ObjectShortName">o_busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/U0_TX/U0_FSM/current_state" type="array">
+      <obj_property name="ElementShortName">current_state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U4_ASYNCHRONOUS_FIFO/U0_WRITE_BLOCK/write_pointer" type="array">
+      <obj_property name="ElementShortName">write_pointer[3:0]</obj_property>
+      <obj_property name="ObjectShortName">write_pointer[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U4_ASYNCHRONOUS_FIFO/U1_READ_BLOCK/read_pointer" type="array">
+      <obj_property name="ElementShortName">read_pointer[3:0]</obj_property>
+      <obj_property name="ObjectShortName">read_pointer[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/ALU_OP_RESULT" type="array">
+      <obj_property name="ElementShortName">ALU_OP_RESULT[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_OP_RESULT[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/RECEIVED_FRAME" type="array">
+      <obj_property name="ElementShortName">RECEIVED_FRAME[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RECEIVED_FRAME[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U2_CONTROLLER/o_ALU_EN" type="logic">
+      <obj_property name="ElementShortName">o_ALU_EN</obj_property>
+      <obj_property name="ObjectShortName">o_ALU_EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U0_ALU/o_ALU_OUT" type="array">
+      <obj_property name="ElementShortName">o_ALU_OUT[15:0]</obj_property>
+      <obj_property name="ObjectShortName">o_ALU_OUT[15:0]</obj_property>
+   </wvobject>
+</wave_config>

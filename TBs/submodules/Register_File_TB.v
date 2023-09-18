@@ -42,18 +42,18 @@ module Register_File_TB;
         .ADDR_WIDTH(ADDR_WIDTH),
         .REG_WIDTH(REG_WIDTH)
     ) uut  (
-        .CLK(CLK),
-        .RST(RST),
-        .RdEn(RdEn),
-        .WrEn(WrEn),
-        .Address(Address),
-        .WrData(WrData),
-        .RdData(RdData),
-        .RdData_Valid(RdData_Valid),
-        .REG0(REG0),
-        .REG1(REG1),
-        .REG2(REG2),
-        .REG3(REG3)
+        .i_CLK(CLK),
+        .i_RST(RST),
+        .i_RdEn(RdEn),
+        .i_WrEn(WrEn),
+        .i_Address(Address),
+        .i_WrData(WrData),
+        .o_RdData(RdData),
+        .o_RdData_Valid(RdData_Valid),
+        .o_REG0(REG0),
+        .o_REG1(REG1),
+        .o_REG2(REG2),
+        .o_REG3(REG3)
     );
 
         always #15 CLK = ~CLK;

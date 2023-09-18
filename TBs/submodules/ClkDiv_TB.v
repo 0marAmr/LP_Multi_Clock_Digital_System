@@ -19,7 +19,7 @@ module ClkDiv_TB;
         end
     end
 
-    ClkDiv DUT(
+    CLK_DIV DUT(
         .i_ref_clk(i_ref_clk),
         .i_rst_n(i_rst_n),
         .i_clk_en(i_clk_en),
