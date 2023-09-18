@@ -24,11 +24,12 @@ module SYS_TOP_TB;
     //////////////////// DUT Signals ////////////////////////
     /////////////////////////////////////////////////////////
 
-    reg     REF_CLK_TB;
-    reg     UART_CLK_TB;
-    reg     RST_TB;
-    reg     RX_IN_TB;
-    wire    TX_OUT_TB;
+    reg                         REF_CLK_TB;
+    reg                         UART_CLK_TB;
+    reg                         RST_TB;
+    reg                         RX_IN_TB;
+    wire                        TX_OUT_TB;
+    reg     [FRAME_WIDTH-1:0]   RECEIVED_FRAME;
 
     /////////////////////////////////////////////////////////
     ///////////////// Loops Variables ///////////////////////
@@ -44,7 +45,10 @@ module SYS_TOP_TB;
         initialize();
         reset();
         reg_file_write(11, 22);
-        #(20* TX_CLK_PERIOD)
+        # (TX_CLK_PERIOD)
+        
+        reg_file_read(11, RECEIVED_FRAME);
+        #(TX_CLK_PERIOD)
         $finish;
     end
 
@@ -61,6 +65,7 @@ module SYS_TOP_TB;
     endtask
 
     ///////////////////////// RESET /////////////////////////
+
     task reset;
     begin
         RST_TB = 1;
@@ -72,6 +77,7 @@ module SYS_TOP_TB;
     endtask
     
     ///////////////////////// SEND FRAME (TX SIMULATION) /////////////////////////
+
     task send_frame (
         input [FRAME_WIDTH-1:0] Data
     );
@@ -91,6 +97,25 @@ module SYS_TOP_TB;
     end
     endtask
 
+    ///////////////////////// RECEIVE FRAME (RX SIMULATION) /////////////////////////
+
+    task receive_frame (
+        output [FRAME_WIDTH-1:0] Data
+    );
+    begin
+        @(negedge TX_OUT_TB) // wait for start bit
+        #(TX_CLK_PERIOD) 
+        for (i = 0; i< FRAME_WIDTH; i = i + 1) begin
+            #(TX_CLK_PERIOD) // sample @ the middle of the period
+            Data[i]= TX_OUT_TB;
+        end
+        #(TX_CLK_PERIOD)          
+        if (TX_OUT_TB != ~^Data)    // even parity by default
+            Data = 0; // error
+        
+    end
+    endtask
+
     ///////////////////////// REG WRITE /////////////////////////
     
     task reg_file_write(
@@ -103,11 +128,26 @@ module SYS_TOP_TB;
         send_frame(Data);
     end
     endtask
+ 
+    ///////////////////////// REG READ /////////////////////////
+
+    task reg_file_read(
+        input   [FRAME_WIDTH-1:0]   Addr,
+        output  [FRAME_WIDTH-1:0]   Data
+    );
+    begin
+        send_frame(RF_Rd_CMD);
+        send_frame(Addr);
+        receive_frame(Data);
+    end
+    endtask
+
     /////////////////////////////////////////////////////////
     ////////////////// Clock Generators  ////////////////////
     /////////////////////////////////////////////////////////
 
     /////////////// REF CLK Generator //////////////////
+
     initial begin
         REF_CLK_TB = 0;
         forever begin
@@ -117,6 +157,7 @@ module SYS_TOP_TB;
     end
 
     /////////////// UART CLK Generator //////////////////
+
     initial begin
         UART_CLK_TB = 0;
         forever begin
