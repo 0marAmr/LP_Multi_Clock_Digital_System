@@ -18,7 +18,7 @@ module Register_File #(
 
     localparam FILE_DEPTH = 2 ** ADDR_WIDTH;    /*No of registers in reg file*/
     localparam RESERVED_REGS = 4;
-    reg [REG_WIDTH - 1: 0] Reg_File [0: FILE_DEPTH];
+    reg [REG_WIDTH - 1: 0] Reg_File [0: FILE_DEPTH-1];
     integer i;
 
     always @(posedge i_CLK or negedge i_RST) begin
