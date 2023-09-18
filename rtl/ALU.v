@@ -11,7 +11,7 @@ module ALU #(
     output  reg     [2*DATA_WIDTH-1:0]      o_ALU_OUT,
     output  reg                             o_OUT_Valid
 );
-    reg [DATA_WIDTH - 1:0] ALU_result;
+    reg [2*DATA_WIDTH - 1:0] ALU_result;
     
 
     localparam [ALU_FUN_WIDTH-1:0]  Addition        = 4'b0000,
