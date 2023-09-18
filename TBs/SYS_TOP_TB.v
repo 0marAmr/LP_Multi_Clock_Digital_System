@@ -14,11 +14,31 @@ module SYS_TOP_TB;
     parameter   REF_CLK_PERIOD  = 20;
     parameter   UART_CLK_PERIOD = 271.267;
     parameter   TX_CLK_PERIOD = UART_CLK_PERIOD * 32;
-    
+
     localparam RF_Wr_CMD            = 8'hAA;
     localparam RF_Rd_CMD            = 8'hBB;
     localparam ALU_OPER_W_OP_CMD    = 8'hCC;
     localparam ALU_OPER_W_NOP_CMD   = 8'hDD;
+
+    ///////////////////////////////////////////////////////////////
+    ///////////////////// Local Parameters ////////////////////////
+    ///////////////////////////////////////////////////////////////
+
+    localparam [ALU_FUN_WIDTH-1:0]  Addition        = 4'b0000,
+                                    Subtraction     = 4'b0001,
+                                    Multiplication  = 4'b0010,
+                                    Division        = 4'b0011,
+                                    AND             = 4'b0100,
+                                    OR              = 4'b0101,
+                                    NAND            = 4'b0110,
+                                    NOR             = 4'b0111,
+                                    XOR             = 4'b1000,
+                                    XNOR            = 4'b1001,
+                                    AeqB            = 4'b1010,
+                                    AgtB            = 4'b1011,
+                                    AltB            = 4'b1100,
+                                    SHLA            = 4'b1101,
+                                    SHRA            = 4'b1110;
 
     /////////////////////////////////////////////////////////
     //////////////////// DUT Signals ////////////////////////
@@ -29,7 +49,8 @@ module SYS_TOP_TB;
     reg                         RST_TB;
     reg                         RX_IN_TB;
     wire                        TX_OUT_TB;
-    reg     [FRAME_WIDTH-1:0]   RECEIVED_FRAME;
+    reg     [FRAME_WIDTH-1:0]   RECEIVED_FRAME = 0;
+    reg     [2*FRAME_WIDTH-1:0] ALU_OP_RESULT  = 0;
 
     /////////////////////////////////////////////////////////
     ///////////////// Loops Variables ///////////////////////
@@ -45,9 +66,24 @@ module SYS_TOP_TB;
         initialize();
         reset();
         reg_file_write(11, 22);
-        # (TX_CLK_PERIOD)
-        
+        #(TX_CLK_PERIOD)
+
         reg_file_read(11, RECEIVED_FRAME);
+        #(TX_CLK_PERIOD)
+
+        alu_op_w_operands(5, 6, Multiplication, ALU_OP_RESULT[7:0], ALU_OP_RESULT[15:8]);
+        #(TX_CLK_PERIOD)
+        alu_op_w_operands(120, 3, Division, ALU_OP_RESULT[7:0], ALU_OP_RESULT[15:8]);
+        #(TX_CLK_PERIOD)
+        alu_op_w_operands(255, 4, Multiplication, ALU_OP_RESULT[7:0], ALU_OP_RESULT[15:8]);
+        #(TX_CLK_PERIOD)
+        alu_op_n_operands(Addition, ALU_OP_RESULT[7:0], ALU_OP_RESULT[15:8]);
+        #(TX_CLK_PERIOD)
+        alu_op_n_operands(Subtraction, ALU_OP_RESULT[7:0], ALU_OP_RESULT[15:8]);
+        #(TX_CLK_PERIOD)
+        alu_op_w_operands(255, 254, AgtB, ALU_OP_RESULT[7:0], ALU_OP_RESULT[15:8]);
+        #(TX_CLK_PERIOD)
+        #(TX_CLK_PERIOD)
         #(TX_CLK_PERIOD)
         $finish;
     end
@@ -75,7 +111,7 @@ module SYS_TOP_TB;
         RST_TB = 1;
     end
     endtask
-    
+
     ///////////////////////// SEND FRAME (TX SIMULATION) /////////////////////////
 
     task send_frame (
@@ -104,20 +140,20 @@ module SYS_TOP_TB;
     );
     begin
         @(negedge TX_OUT_TB) // wait for start bit
-        #(TX_CLK_PERIOD) 
+        #(TX_CLK_PERIOD)
         for (i = 0; i< FRAME_WIDTH; i = i + 1) begin
             #(TX_CLK_PERIOD) // sample @ the middle of the period
             Data[i]= TX_OUT_TB;
         end
-        #(TX_CLK_PERIOD)          
+        #(TX_CLK_PERIOD)
         if (TX_OUT_TB != ~^Data)    // even parity by default
             Data = 0; // error
-        
+
     end
     endtask
 
     ///////////////////////// REG WRITE /////////////////////////
-    
+
     task reg_file_write(
         input [FRAME_WIDTH-1:0] Addr,
         input [FRAME_WIDTH-1:0] Data
@@ -128,7 +164,7 @@ module SYS_TOP_TB;
         send_frame(Data);
     end
     endtask
- 
+
     ///////////////////////// REG READ /////////////////////////
 
     task reg_file_read(
@@ -139,6 +175,38 @@ module SYS_TOP_TB;
         send_frame(RF_Rd_CMD);
         send_frame(Addr);
         receive_frame(Data);
+    end
+    endtask
+
+    ///////////////////////// ALU OPERATION WITH OPERANDS /////////////////////////
+    task alu_op_w_operands(
+        input   [FRAME_WIDTH-1:0]   operand1,
+        input   [FRAME_WIDTH-1:0]   operand2,
+        input   [FRAME_WIDTH-1:0]   alu_fun,
+        output   [FRAME_WIDTH-1:0]  LSByte,
+        output   [FRAME_WIDTH-1:0]  MSByte
+    );
+    begin
+        send_frame(ALU_OPER_W_OP_CMD);
+        send_frame(operand1);
+        send_frame(operand2);
+        send_frame(alu_fun);
+        receive_frame(LSByte);
+        receive_frame(MSByte);
+    end
+    endtask
+
+    ///////////////////////// ALU OPERATION WITHOUT OPERANDS /////////////////////////
+    task alu_op_n_operands(
+        input   [FRAME_WIDTH-1:0]   alu_fun,
+        output   [FRAME_WIDTH-1:0]  LSByte,
+        output   [FRAME_WIDTH-1:0]  MSByte
+    );
+    begin
+        send_frame(ALU_OPER_W_NOP_CMD);
+        send_frame(alu_fun);
+        receive_frame(LSByte);
+        receive_frame(MSByte);
     end
     endtask
 
@@ -169,7 +237,7 @@ module SYS_TOP_TB;
     ////////////////////////////////////////////////////////
     /////////////////// DUT Instantation ///////////////////
     ////////////////////////////////////////////////////////
-    
+
     SYS_TOP  #(
         .DATA_WIDTH(DATA_WIDTH),
         .ALU_FUN_WIDTH(ALU_FUN_WIDTH),
