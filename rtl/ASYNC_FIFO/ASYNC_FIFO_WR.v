@@ -19,7 +19,7 @@ module ASYNC_FIFO_WR #(
             write_pointer <= 'b0;
         end
         else if (~wr_full && wr_inc) begin
-            write_pointer = write_pointer + 1;
+            write_pointer <= write_pointer + 1;
         end
     end
     

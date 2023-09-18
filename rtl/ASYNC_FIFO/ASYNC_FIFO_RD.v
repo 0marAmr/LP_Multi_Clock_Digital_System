@@ -19,7 +19,7 @@ module ASYNC_FIFO_RD #(
             read_pointer <= 'b0;
         end
         else if (~rd_empty && rd_inc) begin
-            read_pointer = read_pointer + 1;
+            read_pointer <= read_pointer + 1;
         end
     end
     
