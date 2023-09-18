@@ -14,34 +14,33 @@ module SYS_CTRL #(
     input   wire                        i_RX_D_VLD,
     input   wire                        i_FIFO_FULL,
     output  wire [DATA_WIDTH-1:0]       o_WrData,
+    output  wire [ADDR_WIDTH-1:0]       o_Address,
+    output  wire [DATA_WIDTH-1:0]       o_FIFO_DATA,
     output  reg  [ALU_FUN_WIDTH-1:0]    o_ALU_FUN,
-    output  reg  [ADDR_WIDTH-1:0]       o_Address,
-    output  reg  [DATA_WIDTH-1:0]       o_FIFO_DATA,
     // Control signals
     output  reg                         o_WrEn,
     output  reg                         o_WR_INC,
     output  reg                         o_RdEn,
     output  reg                         o_ALU_EN,
     output  reg                         o_CLK_EN,
-    output  reg                         o_TX_D_VLD,
     output  reg                         o_clk_div_en
 );
 
-    localparam STATE_REG_WIDTH = 4;
+    localparam STATE_REG_WIDTH = 5;
     localparam RF_Wr_CMD            = 8'hAA;
     localparam RF_Rd_CMD            = 8'hBB;
     localparam ALU_OPER_W_OP_CMD    = 8'hCC;
     localparam ALU_OPER_W_NOP_CMD   = 8'hDD;
 
     /*Grey encode these MFs*/
-    localparam [3:0]    IDLE        = 'b0000,
-                        RF_WR_Addr  = 'b0001, 
-                        RF_WR_Data  = 'b0010,
-                        RF_WRITE    = 'b0011,
-                        RF_RD_Addr  = 'b0100,
-                        RF_READ     = 'b0101,
-                        FIFO_WR     = 'b0110,
-                        TX_SEND     = 'b0111;
+    localparam [STATE_REG_WIDTH-1:0]    IDLE            = 'b0_0000,
+                                        RF_WR_Addr      = 'b0_0001, 
+                                        RF_WR_Data      = 'b0_0010,
+                                        RF_WRITE        = 'b0_0011,
+                                        RF_RD_Addr      = 'b0_0100,
+                                        RF_READ         = 'b0_0101,
+                                        RF_RD_FIFO_WR   = 'b0_0110,
+                                        TX_SEND         = 'b0_0111;
 
 
     reg o_RF_Addr_Str;
@@ -57,7 +56,7 @@ module SYS_CTRL #(
             RF_Data <= 'b0;
         end
         else if(o_RF_Addr_Str)begin
-            RF_Addr <= i_RX_P_DATA;
+            RF_Addr <= i_RX_P_DATA[3:0];
         end
         else if (o_RF_Data_Wr_Str) begin
             RF_Data <= i_RX_P_DATA;
@@ -84,12 +83,12 @@ module SYS_CTRL #(
         o_RdEn            = 'b0;
         o_ALU_EN          = 'b0;
         o_CLK_EN          = 'b0;
-        o_TX_D_VLD        = 'b0;
         o_WR_INC          = 'b0;
         o_clk_div_en      = 'b1; // clock divider is ON by default
         o_RF_Addr_Str     = 'b0;
         o_RF_Data_Wr_Str  = 'b0;
         o_RF_Data_Rd_Str  = 'b0;
+        
         case (present_state)
             IDLE: begin
                 // NS Logic
@@ -137,12 +136,52 @@ module SYS_CTRL #(
                 
                 // Output Logic
                 o_WrEn = 'b1;
-            end          
+            end
+            RF_RD_Addr: begin
+                // NS Logic
+                if (~i_RX_D_VLD) begin
+                    next_state = RF_RD_Addr;
+                end
+                else begin
+                    next_state = RF_READ;
+                end
+
+                // Output Logic
+                o_RF_Addr_Str = 'b1;              
+            end
+            RF_READ: begin
+                // NS Logic
+                if (~i_RdData_Valid) begin
+                    next_state = RF_READ;
+                end
+                else begin
+                    next_state = RF_RD_FIFO_WR;
+                end
+                
+                // Output Logic
+                o_RdEn = 1'b1;
+                o_RF_Data_Rd_Str = 'b1;
+            end
+            RF_RD_FIFO_WR: begin
+                // NS Logic
+                if (i_FIFO_FULL) begin
+                    next_state = RF_RD_FIFO_WR;
+                end
+                else begin
+                    next_state = IDLE;
+                end       
+
+                // Output Logic
+                o_WR_INC = 'b1;                       
+            end
+
             default: begin
                 next_state = IDLE;
             end
         endcase
     end
 
-    assign o_WrData = RF_Data;
+    assign o_WrData     = RF_Data;
+    assign o_Address    = RF_Addr;
+    assign o_FIFO_DATA  = RF_Data;
 endmodule
