@@ -16,7 +16,7 @@ module ASYNC_FIFO #(
     input   wire                    i_R_INC,
     output  wire                    o_FULL,
     output  wire                    o_EMPTY,
-    input   wire [DATA_WIDTH-1:0]   o_RD_DATA
+    output  wire [DATA_WIDTH-1:0]   o_RD_DATA
 );
 
     wire [ADDR_WIDTH:0]     gray_rd_ptr;
@@ -25,7 +25,7 @@ module ASYNC_FIFO #(
     wire [ADDR_WIDTH:0]     gray_sync_wr_ptr;
     wire [ADDR_WIDTH-1:0]   rd_addr;
     wire [ADDR_WIDTH-1:0]   wr_addr;
-
+    
     ASYNC_FIFO_WR #(
         .DATA_WIDTH(DATA_WIDTH),
         .ADDR_WIDTH(ADDR_WIDTH)
@@ -44,7 +44,7 @@ module ASYNC_FIFO #(
         .ADDR_WIDTH(ADDR_WIDTH)
     ) U1_READ_BLOCK (
         .R_CLK(i_R_CLK),
-        .R_RST(i_R_CLK),
+        .R_RST(i_R_RST),
         .rd_inc(i_R_INC),
         .gray_wr_ptr(gray_sync_wr_ptr),
         .rd_addr(rd_addr),
