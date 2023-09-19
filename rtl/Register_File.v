@@ -31,11 +31,7 @@ module Register_File #(
             o_RdData_Valid <= 'b0;
 
             /*default values*/
-            Reg_File[2][0]      <= 'b1;         /*Parity Enable*/
-            Reg_File[2][1]      <= 'b0;         /*Parity Type*/
-            Reg_File[2][7:2]    <= 'd32;        /*Prescale*/
-
-            Reg_File[3]         <= 'd32;        /*Div Ratio*/
+                Reg_File[3]         <= 'd32;        /*Div Ratio*/
         end
         else if(i_WrEn) begin
             Reg_File[i_Address] <= i_WrData;
