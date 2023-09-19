@@ -1,7 +1,8 @@
 module SYS_CTRL #(
     parameter   DATA_WIDTH      = 8,
                 ADDR_WIDTH      = 4,
-                ALU_FUN_WIDTH   = 4
+                ALU_FUN_WIDTH   = 4,
+                PRESC_WIDTH     = 6
 
 )(
     input   wire                        i_CLK,
@@ -13,6 +14,9 @@ module SYS_CTRL #(
     input   wire [DATA_WIDTH-1:0]       i_RX_P_DATA,
     input   wire                        i_RX_D_VLD,
     input   wire                        i_FIFO_FULL,
+    input   wire                        i_Par_En,
+    input   wire                        i_Par_Type,
+    input   wire [PRESC_WIDTH-1:0]      i_Prescale,
     output  wire [DATA_WIDTH-1:0]       o_WrData,
     output  wire [ALU_FUN_WIDTH-1:0]    o_ALU_FUN,
     output  reg  [DATA_WIDTH-1:0]       o_FIFO_DATA,
@@ -26,32 +30,34 @@ module SYS_CTRL #(
     output  reg                         o_clk_div_en
 );
 
-    localparam STATE_REG_WIDTH = 4;
+    localparam STATE_REG_WIDTH = 5;
     localparam RF_Wr_CMD            = 8'hAA;
     localparam RF_Rd_CMD            = 8'hBB;
     localparam ALU_OPER_W_OP_CMD    = 8'hCC;
     localparam ALU_OPER_W_NOP_CMD   = 8'hDD;
 
-    /*Grey encode these MFs*/
-    localparam [STATE_REG_WIDTH-1:0]    IDLE                = 'b0000,
-                                        RF_WR_Addr          = 'b0001,
-                                        RF_WR_Data          = 'b0010,
-                                        RF_WRITE            = 'b0011,
-                                        RF_RD_Addr          = 'b0100,
-                                        RF_READ             = 'b0101,
-                                        RF_RD_FIFO_Wr       = 'b0110,
-                                        ALU_OP_OPER1_Rd     = 'b0111,
-                                        ALU_OP_Oper1_Str    = 'b1000,
-                                        ALU_OP_Oper2_Rd     = 'b1001,
-                                        ALU_OP_Oper2_Str    = 'b1010,
-                                        ALU_OP_FUN_Rd       = 'b1011,
-                                        ALU_OP_Res_Calc     = 'b1100,
-                                        ALU_OP_Str          = 'b1101,
-                                        ALU_FIFO_Wr_1       = 'b1110,
-                                        ALU_FIFO_Wr_2       = 'b1111;
+    localparam [STATE_REG_WIDTH-1:0]    RST_Config_Rd       = 'b00000,
+                                        RST_Config_Wr       = 'b00001,
+                                        IDLE                = 'b00011,
+                                        RF_WR_Addr          = 'b00010,
+                                        RF_WR_Data          = 'b00110,
+                                        RF_WRITE            = 'b00111,
+                                        RF_RD_Addr          = 'b00101,
+                                        RF_READ             = 'b00100,
+                                        RF_RD_FIFO_Wr       = 'b01100,
+                                        ALU_OP_OPER1_Rd     = 'b01101,
+                                        ALU_OP_Oper1_Str    = 'b01111,
+                                        ALU_OP_Oper2_Rd     = 'b01110,
+                                        ALU_OP_Oper2_Str    = 'b01010,
+                                        ALU_OP_FUN_Rd       = 'b01011,
+                                        ALU_OP_Res_Calc     = 'b01001,
+                                        ALU_OP_Str          = 'b01000,
+                                        ALU_FIFO_Wr_1       = 'b11000,
+                                        ALU_FIFO_Wr_2       = 'b11001;
 
 
 
+    reg o_RST_Config_Str;       // stores the device configurations in REG[2] (reserved register)
     reg o_RF_Addr_Str;          // stores the address of the Reg File to be read from/ written to
     reg o_RF_Data_Rd_Str;       // stores the data read from the Reg File
     reg [1:0] o_RF_Addr_Src_Sel;// Selects the address of the Reg File to be Fixed 0 (ALUOp1) or Fixed 1 (ALUOp2) or CTRL_Reg_Addr value
@@ -65,10 +71,13 @@ module SYS_CTRL #(
     reg [DATA_WIDTH-1:0] CTRL_Reg_Data2;
 
     always @(posedge i_CLK or negedge i_RST) begin
-         if(~i_RST) begin
+         if (~i_RST) begin
             CTRL_Reg_Addr <= 'b0;
             CTRL_Reg_Data1 <= 'b0;
             CTRL_Reg_Data2 <= 'b0;
+        end
+        if (o_RST_Config_Str) begin
+            CTRL_Reg_Data1 <= {i_Prescale, i_Par_Type, i_Par_En};
         end
         else if(o_RF_Addr_Str)begin
             CTRL_Reg_Addr <= i_RX_P_DATA[3:0];
@@ -79,17 +88,17 @@ module SYS_CTRL #(
         else if (o_RF_Data_Rd_Str) begin
             CTRL_Reg_Data1 <= i_RdData;
         end
-        else if(o_ALU_OP_Res_Str) begin
+        else if (o_ALU_OP_Res_Str) begin
             CTRL_Reg_Data1 <= i_ALU_OUT[DATA_WIDTH-1:0];
             CTRL_Reg_Data2 <= i_ALU_OUT[2*DATA_WIDTH-1:DATA_WIDTH];
         end
     end
 
     // State transition Logic
-    reg [3:0] present_state, next_state;
+    reg [STATE_REG_WIDTH-1:0] present_state, next_state;
     always @(posedge i_CLK or negedge i_RST) begin
         if(~i_RST) begin
-            present_state <= IDLE;
+            present_state <= RST_Config_Rd;
         end
         else begin
             present_state <= next_state;
@@ -100,8 +109,8 @@ module SYS_CTRL #(
         case (o_RF_Addr_Src_Sel)
             2'b00: o_Address    = 'b0;
             2'b01: o_Address    = 'b1;
-            2'b10: o_Address    = CTRL_Reg_Addr[3:0];
-            default: o_Address  = CTRL_Reg_Addr[3:0];
+            2'b10: o_Address    = 'b10;
+            2'b11: o_Address    = CTRL_Reg_Addr[3:0];
         endcase
 
         if (o_FIFO_Wr_Data_Sel) begin
@@ -114,6 +123,7 @@ module SYS_CTRL #(
 
     // Next State & Output Logic
     always @(*) begin
+        o_RST_Config_Str  = 'b0;
         o_WrEn            = 'b0;
         o_RdEn            = 'b0;
         o_ALU_EN          = 'b0;
@@ -127,6 +137,21 @@ module SYS_CTRL #(
         o_FIFO_Wr_Data_Sel= 'b0;
         o_RF_Addr_Src_Sel = 'b0;
         case (present_state)
+            RST_Config_Rd: begin
+                // NS Logic
+                next_state = RST_Config_Wr;
+
+                // Output Logic
+                o_RST_Config_Str = 'b1;
+            end
+            RST_Config_Wr: begin
+                // NS Logic
+                next_state = IDLE;
+
+                // Output Logic
+                o_WrEn = 'b1;
+                o_RF_Addr_Src_Sel = 'b10;
+            end
             IDLE: begin
                 // NS Logic
                 if (~i_RX_D_VLD) begin
@@ -175,7 +200,7 @@ module SYS_CTRL #(
 
                 // Output Logic
                 o_WrEn = 'b1;
-                o_RF_Addr_Src_Sel = 'b10;
+                o_RF_Addr_Src_Sel = 'b11;
             end
             RF_RD_Addr: begin
                 // NS Logic
@@ -200,7 +225,7 @@ module SYS_CTRL #(
 
                 // Output Logic
                 o_RdEn = 1'b1;
-                o_RF_Addr_Src_Sel = 'b10;
+                o_RF_Addr_Src_Sel = 'b11;
                 o_RF_Data_Rd_Str = 'b1;
             end
             RF_RD_FIFO_Wr: begin
