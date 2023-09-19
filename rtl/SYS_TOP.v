@@ -2,7 +2,8 @@ module SYS_TOP  #(
     parameter   DATA_WIDTH      = 8,
                 ALU_FUN_WIDTH   = 4,
                 REG_ADDR_WIDTH  = 4,
-                ADDR_WIDTH = 4
+                ADDR_WIDTH      = 4,
+                PRESC_WIDTH     = 6
 
 
 )(
@@ -10,7 +11,12 @@ module SYS_TOP  #(
     input   wire                    UART_CLK,
     input   wire                    RST,
     input   wire                    RX_IN,
-    output  wire                    TX_OUT
+    input   wire                    PAR_EN,
+    input   wire                    PAR_TYP,
+    input   wire [PRESC_WIDTH-1:0]  PRESCALE,
+    output  wire                    TX_OUT,
+    output  wire                    PAR_ERR,
+    output  wire                    STP_ERR
 );
 
     ///////////////////////////////////////////////////////////////
@@ -97,6 +103,9 @@ module SYS_TOP  #(
         .i_RX_P_DATA(RX_Out_Sync),
         .i_RX_D_VLD(RX_Sync_Data_Valid),
         .i_FIFO_FULL(FIFO_FULL),
+        .i_Par_En(PAR_EN),
+        .i_Par_Type(PAR_TYP),
+        .i_Prescale(PRESCALE),
         .o_ALU_FUN(FUN),
         .o_Address(Addr),
         .o_WrData(Wr_D),
@@ -125,7 +134,7 @@ module SYS_TOP  #(
         .DATA_WIDTH(DATA_WIDTH)
     ) U3_UART_INTERFACE (
         .i_TX_CLK(TX_CLK),
-        .i_RX_CLK(UART_CLK), // RX_CLK
+        .i_RX_CLK(RX_CLK),
         .i_RST(UART_SYNC_RST),
         .i_PAR_EN(UART_Config[0]),
         .i_TX_Data_Valid(~FIFO_Empty),
@@ -136,7 +145,9 @@ module SYS_TOP  #(
         .o_busy(TX_Busy),
         .o_RX_OUT(RX_Out),
         .o_TX_OUT(TX_OUT),
-        .o_RX_Data_Valid(RX_Out_Data_Valid)
+        .o_RX_Data_Valid(RX_Out_Data_Valid),
+        .o_par_err(PAR_ERR),
+        .o_stp_err(STP_ERR)
     );
 
     /////////////////////////////////////////////////////////////
@@ -180,7 +191,7 @@ module SYS_TOP  #(
         .BUS_WIDTH(DATA_WIDTH)
     ) U6_RX_to_SYS_CTRL_DATA_SYNC (
         .i_CLK(REF_CLK),
-        .i_RST(SYNC_REF_RST),
+        .i_RST(REF_SYNC_RST),
         .i_unsync_bus(RX_Out),
         .i_bus_enable(RX_Out_Data_Valid),
         .o_sync_bus(RX_Out_Sync),
