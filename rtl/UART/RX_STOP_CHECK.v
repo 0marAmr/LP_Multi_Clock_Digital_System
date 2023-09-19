@@ -2,6 +2,7 @@ module RX_STOP_CHECK (
     input wire CLK,
     input wire RST,
     input wire stp_chk_en,
+    input wire sampling_done,
     input wire sampled_bit,
     output reg stp_err
 );
@@ -10,11 +11,11 @@ module RX_STOP_CHECK (
         if (~RST) begin
             stp_err <= 'b0;
         end
-        else if(stp_chk_en) begin
+        else if(stp_chk_en && sampling_done) begin
             // stop bit must be 1
             stp_err <= ~sampled_bit;
         end
-        else begin
+        else if (~stp_chk_en) begin
             stp_err <= 'b0;
         end
     end

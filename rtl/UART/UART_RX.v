@@ -8,10 +8,21 @@ module UART_RX #(
     input   wire                    PAR_EN,
     input   wire                    PAR_TYP,
     output  wire                    Data_Valid,
+    output  wire                    par_err,
+    output  wire                    stp_err,
     output  wire  [DATA_WIDTH-1:0]  P_DATA
 );
 
     wire   [2:0]  bit_cnt;
+    wire bit_done;
+    wire stp_chk_en;
+    wire strt_chk_en;
+    wire par_chk_en;
+    wire deser_en;
+    wire data_samp_en;
+    wire edge_count_enable;
+    wire bit_count_enable;
+    wire sampling_done;
 
     RX_FSM U1_FSM (
         .CLK(CLK),
@@ -45,6 +56,7 @@ module UART_RX #(
         .bit_done(bit_done)
     );
 
+    wire sampled_bit;
     RX_DATA_SAMPLING U0_DATA_SAMP (
         .CLK(CLK),
         .RST(RST),
@@ -52,6 +64,7 @@ module UART_RX #(
         .Prescale(Prescale),
         .data_samp_en(data_samp_en),
         .edge_cnt(edge_cnt),
+        .sampling_done(sampling_done),
         .sampled_bit(sampled_bit)
     );
 
@@ -77,6 +90,7 @@ module UART_RX #(
         .PAR_TYP(PAR_TYP),
         .par_chk_en(par_chk_en),
         .sampled_bit(sampled_bit),
+        .sampling_done(sampling_done),
         .P_DATA(P_DATA),
         .par_err(par_err)
     );
@@ -86,6 +100,7 @@ module UART_RX #(
         .RST(RST),
         .stp_chk_en(stp_chk_en),
         .sampled_bit(sampled_bit),
+        .sampling_done(sampling_done),
         .stp_err(stp_err)
     );
 

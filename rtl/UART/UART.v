@@ -14,7 +14,9 @@ module UART #(
     output  wire                        o_busy,
     output  wire    [DATA_WIDTH-1:0]    o_RX_OUT,
     output  wire                        o_TX_OUT, 
-    output  wire                        o_RX_Data_Valid
+    output  wire                        o_RX_Data_Valid,
+    output  wire                        o_par_err,
+    output  wire                        o_stp_err
 
 );
     
@@ -39,6 +41,9 @@ module UART #(
         .PAR_EN(i_PAR_EN),
         .PAR_TYP(i_PAR_TYP),
         .Data_Valid(o_RX_Data_Valid),
-        .P_DATA(o_RX_OUT)
+        .P_DATA(o_RX_OUT),
+        .par_err(o_par_err),
+        .stp_err(o_stp_err)
     );
+
 endmodule

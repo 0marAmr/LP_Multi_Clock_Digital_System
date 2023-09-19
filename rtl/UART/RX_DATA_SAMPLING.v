@@ -5,6 +5,7 @@ module RX_DATA_SAMPLING (
     input wire  [5:0]   Prescale,
     input wire          data_samp_en,
     input wire  [4:0]   edge_cnt,
+    output reg          sampling_done,
     output reg          sampled_bit
 );
 
@@ -21,11 +22,23 @@ module RX_DATA_SAMPLING (
                     samples[0] <= RX_IN;
                 else if(edge_cnt == half_prescale)
                     samples[1] <= RX_IN;
-                else if(edge_cnt == (half_prescale + 4'b1))
+                else if(edge_cnt == (half_prescale + 4'b1)) 
                     samples[2] <= RX_IN;
         end
         else begin
             samples <= 'b000;
+        end
+    end
+
+    always @(posedge CLK or negedge RST) begin
+        if (~RST) begin
+            sampling_done <= 'b0;
+        end
+        else if (edge_cnt == (half_prescale + 4'b1)) begin
+            sampling_done <= 'b1;
+        end
+        else begin
+            sampling_done <= 'b0;
         end
     end
 
