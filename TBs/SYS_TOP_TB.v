@@ -2,27 +2,43 @@
 
 module SYS_TOP_TB;
 
+        
+
+    ///////////////////////////////////////////////////////////////
+    ///////////////////// Local Parameters ////////////////////////
+    ///////////////////////////////////////////////////////////////
+    
+    localparam RF_Wr_CMD            = 8'hAA;
+    localparam RF_Rd_CMD            = 8'hBB;
+    localparam ALU_OPER_W_OP_CMD    = 8'hCC;
+    localparam ALU_OPER_W_NOP_CMD   = 8'hDD;
+    localparam  EVEN_PARITY     = 'b0;
+    localparam  ODD_PARITY      = 'b1;
+
     /////////////////////////////////////////////////////////
     ///////////////////// Parameters ////////////////////////
     /////////////////////////////////////////////////////////
+   
+    ////////////////////// DEVICE CONFIGURATIONS /////////////////////
+    
+    parameter   PAR_TYPE        = EVEN_PARITY;
+    parameter   PAR_ENABLE      = 1;
+    parameter   PRESCALE_VALUE  = 32;
 
+
+    ////////////////////// DO NOT CHANGE !! /////////////////////
+   
     parameter   DATA_WIDTH      = 8;
     parameter   FRAME_WIDTH     = 8;
     parameter   ALU_FUN_WIDTH   = 4;
     parameter   REG_ADDR_WIDTH  = 4;
     parameter   ADDR_WIDTH      = 4;
     parameter   REF_CLK_PERIOD  = 20;
+    parameter   PRESC_WIDTH     = 6;
     parameter   UART_CLK_PERIOD = 271.267;
-    parameter   TX_CLK_PERIOD = UART_CLK_PERIOD * 32;
+    parameter   TX_CLK_PERIOD   = UART_CLK_PERIOD * PRESCALE_VALUE;
 
-    localparam RF_Wr_CMD            = 8'hAA;
-    localparam RF_Rd_CMD            = 8'hBB;
-    localparam ALU_OPER_W_OP_CMD    = 8'hCC;
-    localparam ALU_OPER_W_NOP_CMD   = 8'hDD;
 
-    ///////////////////////////////////////////////////////////////
-    ///////////////////// Local Parameters ////////////////////////
-    ///////////////////////////////////////////////////////////////
 
     localparam [ALU_FUN_WIDTH-1:0]  Addition        = 4'b0000,
                                     Subtraction     = 4'b0001,
@@ -48,7 +64,12 @@ module SYS_TOP_TB;
     reg                         UART_CLK_TB;
     reg                         RST_TB;
     reg                         RX_IN_TB;
+    reg                         PAR_EN_TB;
+    reg                         PAR_TYP_TB;
+    reg     [PRESC_WIDTH-1:0]   PRESCALE_TB;
     wire                        TX_OUT_TB;
+    wire                        PAR_ERR_TB;
+    wire                        STP_ERR_TB;
     reg     [FRAME_WIDTH-1:0]   RECEIVED_FRAME = 0;
     reg     [2*FRAME_WIDTH-1:0] ALU_OP_RESULT  = 0;
 
@@ -64,6 +85,7 @@ module SYS_TOP_TB;
 
     initial begin
         initialize();
+        configure(PAR_ENABLE, PAR_TYPE, PRESCALE_VALUE);
         reset();
         reg_file_write(11, 22);
         #(TX_CLK_PERIOD)
@@ -73,7 +95,7 @@ module SYS_TOP_TB;
 
         alu_op_w_operands(5, 6, Multiplication, ALU_OP_RESULT[7:0], ALU_OP_RESULT[15:8]);
         #(TX_CLK_PERIOD)
-        alu_op_w_operands(120, 3, Division, ALU_OP_RESULT[7:0], ALU_OP_RESULT[15:8]);
+        alu_op_w_operands(15, 2, Division, ALU_OP_RESULT[7:0], ALU_OP_RESULT[15:8]);
         #(TX_CLK_PERIOD)
         alu_op_w_operands(255, 4, Multiplication, ALU_OP_RESULT[7:0], ALU_OP_RESULT[15:8]);
         #(TX_CLK_PERIOD)
@@ -82,16 +104,27 @@ module SYS_TOP_TB;
         alu_op_n_operands(Subtraction, ALU_OP_RESULT[7:0], ALU_OP_RESULT[15:8]);
         #(TX_CLK_PERIOD)
         alu_op_w_operands(255, 254, AgtB, ALU_OP_RESULT[7:0], ALU_OP_RESULT[15:8]);
-        #(TX_CLK_PERIOD)
-        #(TX_CLK_PERIOD)
-        #(TX_CLK_PERIOD)
+        #(5*TX_CLK_PERIOD)
         $finish;
     end
 
     ////////////////////////////////////////////////////////
     /////////////////////// TASKS //////////////////////////
     ////////////////////////////////////////////////////////
-
+    
+    /////////////// Device Configuration //////////////////
+   
+    task configure (
+        input                   par_en,
+        input                   par_type,
+        input [PRESC_WIDTH-1:0] presc
+    );
+    begin
+        PAR_TYP_TB = par_type;
+        PAR_EN_TB = par_en;
+        PRESCALE_TB = presc;
+    end
+    endtask
     /////////////// Signals Initialization //////////////////
 
     task initialize;
@@ -248,7 +281,12 @@ module SYS_TOP_TB;
         .UART_CLK(UART_CLK_TB),
         .RST(RST_TB),
         .RX_IN(RX_IN_TB),
-        .TX_OUT(TX_OUT_TB)
+        .PAR_EN(PAR_EN_TB),
+        .PAR_TYP(PAR_TYP_TB),
+        .PRESCALE(PRESCALE_TB),
+        .TX_OUT(TX_OUT_TB),
+        .PAR_ERR(PAR_ERR_TB),
+        .STP_ERR(STP_ERR_TB)
     );
 
 endmodule

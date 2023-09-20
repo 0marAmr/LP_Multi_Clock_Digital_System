@@ -2,7 +2,7 @@
 
 module ClkDiv_TB;
 
-    parameter DIV_RATIO_WIDTH = 4;
+    parameter DIV_RATIO_WIDTH = 8;
 
     reg i_ref_clk;
     reg i_rst_n;
