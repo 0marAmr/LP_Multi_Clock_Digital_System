@@ -71,12 +71,12 @@ module SYS_CTRL #(
     reg [DATA_WIDTH-1:0] CTRL_Reg_Data2;
 
     always @(posedge i_CLK or negedge i_RST) begin
-         if (~i_RST) begin
+        if (~i_RST) begin
             CTRL_Reg_Addr <= 'b0;
             CTRL_Reg_Data1 <= 'b0;
             CTRL_Reg_Data2 <= 'b0;
         end
-        if (o_RST_Config_Str) begin
+        else if (o_RST_Config_Str) begin
             CTRL_Reg_Data1 <= {i_Prescale, i_Par_Type, i_Par_En};
         end
         else if(o_RF_Addr_Str)begin

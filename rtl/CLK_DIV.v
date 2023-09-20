@@ -12,6 +12,7 @@ module CLK_DIV #(
     wire    [DIV_RATIO_WIDTH-1:0]   half;
     wire                            is_zero;
     wire                            is_one;
+    wire                            even;
     reg                             div_clk;
     always @(posedge i_ref_clk or negedge i_rst_n) begin
         if(~i_rst_n) begin
@@ -20,7 +21,7 @@ module CLK_DIV #(
         end
         else if (i_clk_en)begin
             if (count == (half) && even) begin
-                div_clk = ~div_clk;
+                div_clk <= ~div_clk;
                 count <= 0;
             end
             else if ((((count==half)&&div_clk) || ((count==(half+1))&& ~div_clk))&& ~even) begin

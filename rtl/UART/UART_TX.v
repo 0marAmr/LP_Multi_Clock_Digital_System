@@ -6,6 +6,12 @@ module UART_TX (
 );
     
     wire [1:0] mux_sel; 
+    wire ser_done;
+    wire ser_en;
+    wire par_en;
+    wire load;
+    wire ser_data;
+    wire par_bit;
 
     TX_FSM U0_FSM(
         .CLK(CLK),

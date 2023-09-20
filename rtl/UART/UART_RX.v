@@ -21,6 +21,7 @@ module UART_RX #(
     wire deser_en;
     wire data_samp_en;
     wire edge_count_enable;
+    wire strt_glitch;
     wire bit_count_enable;
     wire sampling_done;
 
