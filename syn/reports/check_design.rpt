@@ -1,0 +1,854 @@
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Thu Sep 21 00:32:29 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                     2
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    14
+    Connected to power or ground (LINT-32)                          2
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_20' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_21' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_22' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_23' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_24' does not drive any nets. (LINT-1)
+Warning: In design 'CLK_DIV_DIV_RATIO_WIDTH8', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_WR_DATA_WIDTH8_ADDR_WIDTH3', cell 'C174' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_RD_DATA_WIDTH8_ADDR_WIDTH3', cell 'C171' does not drive any nets. (LINT-1)
+Warning: In design 'TX_SERIALIZER', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C83' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'RX_DATA_SAMPLING', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[1]' driven by pin 'U1_REG_FILE/o_REG2[1]' has no loads. (LINT-2)
+Warning: In design 'RX_EDGE_BIT_COUNTER', port 'Prescale[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'RX_DATA_SAMPLING', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[3]' is connected directly to output port 'o_ALU_FUN[3]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[2]' is connected directly to output port 'o_ALU_FUN[2]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[1]' is connected directly to output port 'o_ALU_FUN[1]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[0]' is connected directly to output port 'o_ALU_FUN[0]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_ALU_EN' is connected directly to output port 'o_CLK_EN'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[4]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[5]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[6]'. (LINT-31)
+Warning: In design 'RX_FSM', output port 'data_samp_en' is connected directly to output port 'edge_count_enable'. (LINT-31)
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in1' is connected to logic 1. 
+Warning: In design 'SYS_TOP', the same net is connected to more than one pin on submodule 'U3_UART_INTERFACE'. (LINT-33)
+   Net 'UART_Config[0]' is connected to pins 'i_PAR_EN', 'i_PAR_TYP''.
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_clk_div_en' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[4]' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Thu Sep 21 00:38:02 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                     2
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    14
+    Connected to power or ground (LINT-32)                          2
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_20' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_21' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_22' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_23' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_24' does not drive any nets. (LINT-1)
+Warning: In design 'CLK_DIV_DIV_RATIO_WIDTH8', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_WR_DATA_WIDTH8_ADDR_WIDTH3', cell 'C174' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_RD_DATA_WIDTH8_ADDR_WIDTH3', cell 'C171' does not drive any nets. (LINT-1)
+Warning: In design 'TX_SERIALIZER', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C83' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'RX_DATA_SAMPLING', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[1]' driven by pin 'U1_REG_FILE/o_REG2[1]' has no loads. (LINT-2)
+Warning: In design 'RX_EDGE_BIT_COUNTER', port 'Prescale[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'RX_DATA_SAMPLING', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[3]' is connected directly to output port 'o_ALU_FUN[3]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[2]' is connected directly to output port 'o_ALU_FUN[2]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[1]' is connected directly to output port 'o_ALU_FUN[1]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[0]' is connected directly to output port 'o_ALU_FUN[0]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_ALU_EN' is connected directly to output port 'o_CLK_EN'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[4]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[5]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[6]'. (LINT-31)
+Warning: In design 'RX_FSM', output port 'data_samp_en' is connected directly to output port 'edge_count_enable'. (LINT-31)
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in1' is connected to logic 1. 
+Warning: In design 'SYS_TOP', the same net is connected to more than one pin on submodule 'U3_UART_INTERFACE'. (LINT-33)
+   Net 'UART_Config[0]' is connected to pins 'i_PAR_EN', 'i_PAR_TYP''.
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_clk_div_en' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[4]' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Thu Sep 21 00:39:45 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                     2
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    14
+    Connected to power or ground (LINT-32)                          2
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_20' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_21' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_22' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_23' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_24' does not drive any nets. (LINT-1)
+Warning: In design 'CLK_DIV_DIV_RATIO_WIDTH8', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_WR_DATA_WIDTH8_ADDR_WIDTH3', cell 'C174' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_RD_DATA_WIDTH8_ADDR_WIDTH3', cell 'C171' does not drive any nets. (LINT-1)
+Warning: In design 'TX_SERIALIZER', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C83' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'RX_DATA_SAMPLING', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[1]' driven by pin 'U1_REG_FILE/o_REG2[1]' has no loads. (LINT-2)
+Warning: In design 'RX_EDGE_BIT_COUNTER', port 'Prescale[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'RX_DATA_SAMPLING', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[3]' is connected directly to output port 'o_ALU_FUN[3]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[2]' is connected directly to output port 'o_ALU_FUN[2]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[1]' is connected directly to output port 'o_ALU_FUN[1]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[0]' is connected directly to output port 'o_ALU_FUN[0]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_ALU_EN' is connected directly to output port 'o_CLK_EN'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[4]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[5]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[6]'. (LINT-31)
+Warning: In design 'RX_FSM', output port 'data_samp_en' is connected directly to output port 'edge_count_enable'. (LINT-31)
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in1' is connected to logic 1. 
+Warning: In design 'SYS_TOP', the same net is connected to more than one pin on submodule 'U3_UART_INTERFACE'. (LINT-33)
+   Net 'UART_Config[0]' is connected to pins 'i_PAR_EN', 'i_PAR_TYP''.
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_clk_div_en' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[4]' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Thu Sep 21 01:11:54 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                     2
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    14
+    Connected to power or ground (LINT-32)                          2
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_20' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_21' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_22' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_23' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_24' does not drive any nets. (LINT-1)
+Warning: In design 'CLK_DIV_DIV_RATIO_WIDTH8', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_WR_DATA_WIDTH8_ADDR_WIDTH3', cell 'C174' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_RD_DATA_WIDTH8_ADDR_WIDTH3', cell 'C171' does not drive any nets. (LINT-1)
+Warning: In design 'TX_SERIALIZER', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C83' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'RX_DATA_SAMPLING', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[1]' driven by pin 'U1_REG_FILE/o_REG2[1]' has no loads. (LINT-2)
+Warning: In design 'RX_EDGE_BIT_COUNTER', port 'Prescale[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'RX_DATA_SAMPLING', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[3]' is connected directly to output port 'o_ALU_FUN[3]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[2]' is connected directly to output port 'o_ALU_FUN[2]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[1]' is connected directly to output port 'o_ALU_FUN[1]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[0]' is connected directly to output port 'o_ALU_FUN[0]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_ALU_EN' is connected directly to output port 'o_CLK_EN'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[4]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[5]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[6]'. (LINT-31)
+Warning: In design 'RX_FSM', output port 'data_samp_en' is connected directly to output port 'edge_count_enable'. (LINT-31)
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in1' is connected to logic 1. 
+Warning: In design 'SYS_TOP', the same net is connected to more than one pin on submodule 'U3_UART_INTERFACE'. (LINT-33)
+   Net 'UART_Config[0]' is connected to pins 'i_PAR_EN', 'i_PAR_TYP''.
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_clk_div_en' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[4]' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Thu Sep 21 04:33:47 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                     2
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    14
+    Connected to power or ground (LINT-32)                          2
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_20' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_21' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_22' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_23' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_24' does not drive any nets. (LINT-1)
+Warning: In design 'CLK_DIV_DIV_RATIO_WIDTH8', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_WR_DATA_WIDTH8_ADDR_WIDTH3', cell 'C174' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_RD_DATA_WIDTH8_ADDR_WIDTH3', cell 'C171' does not drive any nets. (LINT-1)
+Warning: In design 'TX_SERIALIZER', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C83' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'RX_DATA_SAMPLING', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[1]' driven by pin 'U1_REG_FILE/o_REG2[1]' has no loads. (LINT-2)
+Warning: In design 'RX_EDGE_BIT_COUNTER', port 'Prescale[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'RX_DATA_SAMPLING', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[3]' is connected directly to output port 'o_ALU_FUN[3]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[2]' is connected directly to output port 'o_ALU_FUN[2]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[1]' is connected directly to output port 'o_ALU_FUN[1]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[0]' is connected directly to output port 'o_ALU_FUN[0]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_ALU_EN' is connected directly to output port 'o_CLK_EN'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[4]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[5]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[6]'. (LINT-31)
+Warning: In design 'RX_FSM', output port 'data_samp_en' is connected directly to output port 'edge_count_enable'. (LINT-31)
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in1' is connected to logic 1. 
+Warning: In design 'SYS_TOP', the same net is connected to more than one pin on submodule 'U3_UART_INTERFACE'. (LINT-33)
+   Net 'UART_Config[0]' is connected to pins 'i_PAR_EN', 'i_PAR_TYP''.
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_clk_div_en' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[4]' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Thu Sep 21 04:35:06 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                     2
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    14
+    Connected to power or ground (LINT-32)                          2
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_20' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_21' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_22' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_23' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_24' does not drive any nets. (LINT-1)
+Warning: In design 'CLK_DIV_DIV_RATIO_WIDTH8', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_WR_DATA_WIDTH8_ADDR_WIDTH3', cell 'C174' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_RD_DATA_WIDTH8_ADDR_WIDTH3', cell 'C171' does not drive any nets. (LINT-1)
+Warning: In design 'TX_SERIALIZER', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C83' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'RX_DATA_SAMPLING', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[1]' driven by pin 'U1_REG_FILE/o_REG2[1]' has no loads. (LINT-2)
+Warning: In design 'RX_EDGE_BIT_COUNTER', port 'Prescale[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'RX_DATA_SAMPLING', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[3]' is connected directly to output port 'o_ALU_FUN[3]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[2]' is connected directly to output port 'o_ALU_FUN[2]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[1]' is connected directly to output port 'o_ALU_FUN[1]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[0]' is connected directly to output port 'o_ALU_FUN[0]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_ALU_EN' is connected directly to output port 'o_CLK_EN'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[4]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[5]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[6]'. (LINT-31)
+Warning: In design 'RX_FSM', output port 'data_samp_en' is connected directly to output port 'edge_count_enable'. (LINT-31)
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in1' is connected to logic 1. 
+Warning: In design 'SYS_TOP', the same net is connected to more than one pin on submodule 'U3_UART_INTERFACE'. (LINT-33)
+   Net 'UART_Config[0]' is connected to pins 'i_PAR_EN', 'i_PAR_TYP''.
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_clk_div_en' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[4]' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Thu Sep 21 04:36:55 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                     2
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    14
+    Connected to power or ground (LINT-32)                          2
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_20' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_21' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_22' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_23' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_24' does not drive any nets. (LINT-1)
+Warning: In design 'CLK_DIV_DIV_RATIO_WIDTH8', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_WR_DATA_WIDTH8_ADDR_WIDTH3', cell 'C174' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_RD_DATA_WIDTH8_ADDR_WIDTH3', cell 'C171' does not drive any nets. (LINT-1)
+Warning: In design 'TX_SERIALIZER', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C83' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'RX_DATA_SAMPLING', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[1]' driven by pin 'U1_REG_FILE/o_REG2[1]' has no loads. (LINT-2)
+Warning: In design 'RX_EDGE_BIT_COUNTER', port 'Prescale[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'RX_DATA_SAMPLING', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[3]' is connected directly to output port 'o_ALU_FUN[3]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[2]' is connected directly to output port 'o_ALU_FUN[2]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[1]' is connected directly to output port 'o_ALU_FUN[1]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[0]' is connected directly to output port 'o_ALU_FUN[0]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_ALU_EN' is connected directly to output port 'o_CLK_EN'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[4]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[5]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[6]'. (LINT-31)
+Warning: In design 'RX_FSM', output port 'data_samp_en' is connected directly to output port 'edge_count_enable'. (LINT-31)
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in1' is connected to logic 1. 
+Warning: In design 'SYS_TOP', the same net is connected to more than one pin on submodule 'U3_UART_INTERFACE'. (LINT-33)
+   Net 'UART_Config[0]' is connected to pins 'i_PAR_EN', 'i_PAR_TYP''.
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_clk_div_en' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[4]' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Thu Sep 21 04:38:13 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                     2
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    14
+    Connected to power or ground (LINT-32)                          2
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_20' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_21' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_22' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_23' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_24' does not drive any nets. (LINT-1)
+Warning: In design 'CLK_DIV_DIV_RATIO_WIDTH8', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_WR_DATA_WIDTH8_ADDR_WIDTH3', cell 'C174' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_RD_DATA_WIDTH8_ADDR_WIDTH3', cell 'C171' does not drive any nets. (LINT-1)
+Warning: In design 'TX_SERIALIZER', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C83' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'RX_DATA_SAMPLING', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[1]' driven by pin 'U1_REG_FILE/o_REG2[1]' has no loads. (LINT-2)
+Warning: In design 'RX_EDGE_BIT_COUNTER', port 'Prescale[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'RX_DATA_SAMPLING', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[3]' is connected directly to output port 'o_ALU_FUN[3]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[2]' is connected directly to output port 'o_ALU_FUN[2]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[1]' is connected directly to output port 'o_ALU_FUN[1]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[0]' is connected directly to output port 'o_ALU_FUN[0]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_ALU_EN' is connected directly to output port 'o_CLK_EN'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[4]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[5]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[6]'. (LINT-31)
+Warning: In design 'RX_FSM', output port 'data_samp_en' is connected directly to output port 'edge_count_enable'. (LINT-31)
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in1' is connected to logic 1. 
+Warning: In design 'SYS_TOP', the same net is connected to more than one pin on submodule 'U3_UART_INTERFACE'. (LINT-33)
+   Net 'UART_Config[0]' is connected to pins 'i_PAR_EN', 'i_PAR_TYP''.
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_clk_div_en' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[4]' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Thu Sep 21 04:41:45 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                     2
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    14
+    Connected to power or ground (LINT-32)                          2
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_20' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_21' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_22' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_23' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_24' does not drive any nets. (LINT-1)
+Warning: In design 'CLK_DIV_DIV_RATIO_WIDTH8', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_WR_DATA_WIDTH8_ADDR_WIDTH3', cell 'C174' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_RD_DATA_WIDTH8_ADDR_WIDTH3', cell 'C171' does not drive any nets. (LINT-1)
+Warning: In design 'TX_SERIALIZER', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C83' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'RX_DATA_SAMPLING', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[1]' driven by pin 'U1_REG_FILE/o_REG2[1]' has no loads. (LINT-2)
+Warning: In design 'RX_EDGE_BIT_COUNTER', port 'Prescale[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'RX_DATA_SAMPLING', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[3]' is connected directly to output port 'o_ALU_FUN[3]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[2]' is connected directly to output port 'o_ALU_FUN[2]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[1]' is connected directly to output port 'o_ALU_FUN[1]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[0]' is connected directly to output port 'o_ALU_FUN[0]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_ALU_EN' is connected directly to output port 'o_CLK_EN'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[4]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[5]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[6]'. (LINT-31)
+Warning: In design 'RX_FSM', output port 'data_samp_en' is connected directly to output port 'edge_count_enable'. (LINT-31)
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in1' is connected to logic 1. 
+Warning: In design 'SYS_TOP', the same net is connected to more than one pin on submodule 'U3_UART_INTERFACE'. (LINT-33)
+   Net 'UART_Config[0]' is connected to pins 'i_PAR_EN', 'i_PAR_TYP''.
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_clk_div_en' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[4]' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Thu Sep 21 04:43:25 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                     2
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    14
+    Connected to power or ground (LINT-32)                          2
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_20' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_21' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_22' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_23' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_24' does not drive any nets. (LINT-1)
+Warning: In design 'CLK_DIV_DIV_RATIO_WIDTH8', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_WR_DATA_WIDTH8_ADDR_WIDTH3', cell 'C174' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_RD_DATA_WIDTH8_ADDR_WIDTH3', cell 'C171' does not drive any nets. (LINT-1)
+Warning: In design 'TX_SERIALIZER', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C83' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'RX_DATA_SAMPLING', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[1]' driven by pin 'U1_REG_FILE/o_REG2[1]' has no loads. (LINT-2)
+Warning: In design 'RX_EDGE_BIT_COUNTER', port 'Prescale[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'RX_DATA_SAMPLING', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[3]' is connected directly to output port 'o_ALU_FUN[3]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[2]' is connected directly to output port 'o_ALU_FUN[2]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[1]' is connected directly to output port 'o_ALU_FUN[1]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[0]' is connected directly to output port 'o_ALU_FUN[0]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_ALU_EN' is connected directly to output port 'o_CLK_EN'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[4]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[5]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[6]'. (LINT-31)
+Warning: In design 'RX_FSM', output port 'data_samp_en' is connected directly to output port 'edge_count_enable'. (LINT-31)
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in1' is connected to logic 1. 
+Warning: In design 'SYS_TOP', the same net is connected to more than one pin on submodule 'U3_UART_INTERFACE'. (LINT-33)
+   Net 'UART_Config[0]' is connected to pins 'i_PAR_EN', 'i_PAR_TYP''.
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_clk_div_en' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[4]' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Thu Sep 21 04:44:59 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                     2
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    14
+    Connected to power or ground (LINT-32)                          2
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_20' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_21' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_22' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_23' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_24' does not drive any nets. (LINT-1)
+Warning: In design 'CLK_DIV_DIV_RATIO_WIDTH8', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_WR_DATA_WIDTH8_ADDR_WIDTH3', cell 'C174' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_RD_DATA_WIDTH8_ADDR_WIDTH3', cell 'C171' does not drive any nets. (LINT-1)
+Warning: In design 'TX_SERIALIZER', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C83' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'RX_DATA_SAMPLING', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[1]' driven by pin 'U1_REG_FILE/o_REG2[1]' has no loads. (LINT-2)
+Warning: In design 'RX_EDGE_BIT_COUNTER', port 'Prescale[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'RX_DATA_SAMPLING', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[3]' is connected directly to output port 'o_ALU_FUN[3]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[2]' is connected directly to output port 'o_ALU_FUN[2]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[1]' is connected directly to output port 'o_ALU_FUN[1]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[0]' is connected directly to output port 'o_ALU_FUN[0]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_ALU_EN' is connected directly to output port 'o_CLK_EN'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[4]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[5]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[6]'. (LINT-31)
+Warning: In design 'RX_FSM', output port 'data_samp_en' is connected directly to output port 'edge_count_enable'. (LINT-31)
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in1' is connected to logic 1. 
+Warning: In design 'SYS_TOP', the same net is connected to more than one pin on submodule 'U3_UART_INTERFACE'. (LINT-33)
+   Net 'UART_Config[0]' is connected to pins 'i_PAR_EN', 'i_PAR_TYP''.
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_clk_div_en' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[4]' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Thu Sep 21 04:46:05 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                     2
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    14
+    Connected to power or ground (LINT-32)                          2
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_20' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_21' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_22' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_23' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_24' does not drive any nets. (LINT-1)
+Warning: In design 'CLK_DIV_DIV_RATIO_WIDTH8', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_WR_DATA_WIDTH8_ADDR_WIDTH3', cell 'C174' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_RD_DATA_WIDTH8_ADDR_WIDTH3', cell 'C171' does not drive any nets. (LINT-1)
+Warning: In design 'TX_SERIALIZER', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C83' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'RX_DATA_SAMPLING', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[1]' driven by pin 'U1_REG_FILE/o_REG2[1]' has no loads. (LINT-2)
+Warning: In design 'RX_EDGE_BIT_COUNTER', port 'Prescale[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'RX_DATA_SAMPLING', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[3]' is connected directly to output port 'o_ALU_FUN[3]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[2]' is connected directly to output port 'o_ALU_FUN[2]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[1]' is connected directly to output port 'o_ALU_FUN[1]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[0]' is connected directly to output port 'o_ALU_FUN[0]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_ALU_EN' is connected directly to output port 'o_CLK_EN'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[4]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[5]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[6]'. (LINT-31)
+Warning: In design 'RX_FSM', output port 'data_samp_en' is connected directly to output port 'edge_count_enable'. (LINT-31)
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in1' is connected to logic 1. 
+Warning: In design 'SYS_TOP', the same net is connected to more than one pin on submodule 'U3_UART_INTERFACE'. (LINT-33)
+   Net 'UART_Config[0]' is connected to pins 'i_PAR_EN', 'i_PAR_TYP''.
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_clk_div_en' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[4]' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Thu Sep 21 04:47:49 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                     2
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    14
+    Connected to power or ground (LINT-32)                          2
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_20' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_21' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_22' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_23' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_24' does not drive any nets. (LINT-1)
+Warning: In design 'CLK_DIV_DIV_RATIO_WIDTH8', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_WR_DATA_WIDTH8_ADDR_WIDTH3', cell 'C174' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_RD_DATA_WIDTH8_ADDR_WIDTH3', cell 'C171' does not drive any nets. (LINT-1)
+Warning: In design 'TX_SERIALIZER', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C83' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'RX_DATA_SAMPLING', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[1]' driven by pin 'U1_REG_FILE/o_REG2[1]' has no loads. (LINT-2)
+Warning: In design 'RX_EDGE_BIT_COUNTER', port 'Prescale[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'RX_DATA_SAMPLING', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[3]' is connected directly to output port 'o_ALU_FUN[3]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[2]' is connected directly to output port 'o_ALU_FUN[2]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[1]' is connected directly to output port 'o_ALU_FUN[1]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[0]' is connected directly to output port 'o_ALU_FUN[0]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_ALU_EN' is connected directly to output port 'o_CLK_EN'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[4]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[5]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[6]'. (LINT-31)
+Warning: In design 'RX_FSM', output port 'data_samp_en' is connected directly to output port 'edge_count_enable'. (LINT-31)
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in1' is connected to logic 1. 
+Warning: In design 'SYS_TOP', the same net is connected to more than one pin on submodule 'U3_UART_INTERFACE'. (LINT-33)
+   Net 'UART_Config[0]' is connected to pins 'i_PAR_EN', 'i_PAR_TYP''.
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_clk_div_en' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[4]' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Thu Sep 21 04:50:46 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                     2
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    14
+    Connected to power or ground (LINT-32)                          2
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_20' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_21' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_22' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_23' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA_WIDTH8', cell 'B_24' does not drive any nets. (LINT-1)
+Warning: In design 'CLK_DIV_DIV_RATIO_WIDTH8', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_WR_DATA_WIDTH8_ADDR_WIDTH3', cell 'C174' does not drive any nets. (LINT-1)
+Warning: In design 'ASYNC_FIFO_RD_DATA_WIDTH8_ADDR_WIDTH3', cell 'C171' does not drive any nets. (LINT-1)
+Warning: In design 'TX_SERIALIZER', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C83' does not drive any nets. (LINT-1)
+Warning: In design 'RX_EDGE_BIT_COUNTER', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'RX_DATA_SAMPLING', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[1]' driven by pin 'U1_REG_FILE/o_REG2[1]' has no loads. (LINT-2)
+Warning: In design 'RX_EDGE_BIT_COUNTER', port 'Prescale[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'RX_DATA_SAMPLING', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[3]' is connected directly to output port 'o_ALU_FUN[3]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[2]' is connected directly to output port 'o_ALU_FUN[2]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[1]' is connected directly to output port 'o_ALU_FUN[1]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_WrData[0]' is connected directly to output port 'o_ALU_FUN[0]'. (LINT-31)
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_ALU_EN' is connected directly to output port 'o_CLK_EN'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[4]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[5]'. (LINT-31)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to output port 'o_Div_Ratio_OUT[6]'. (LINT-31)
+Warning: In design 'RX_FSM', output port 'data_samp_en' is connected directly to output port 'edge_count_enable'. (LINT-31)
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_OUTPUT' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in1' is connected to logic 1. 
+Warning: In design 'SYS_TOP', the same net is connected to more than one pin on submodule 'U3_UART_INTERFACE'. (LINT-33)
+   Net 'UART_Config[0]' is connected to pins 'i_PAR_EN', 'i_PAR_TYP''.
+Warning: In design 'SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4', output port 'o_clk_div_en' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Prescale_to_DivRatio', output port 'o_Div_Ratio_OUT[4]' is connected directly to 'logic 0'. (LINT-52)
+1
