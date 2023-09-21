@@ -6,7 +6,7 @@ Report : timing
         -max_paths 20
 Design : SYS_TOP
 Version: K-2015.06
-Date   : Thu Sep 21 04:51:10 2023
+Date   : Thu Sep 21 19:11:01 2023
 ****************************************
 
 Operating Conditions: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c   Library: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
@@ -959,16 +959,15 @@ Wire Load Model Mode: top
   clock network delay (ideal)                             0.00       0.00
   U2_CONTROLLER/present_state_reg[3]/CK (DFFRQX2M)        0.00       0.00 r
   U2_CONTROLLER/present_state_reg[3]/Q (DFFRQX2M)         0.18       0.18 r
-  U2_CONTROLLER/U50/Y (INVX2M)                            0.04       0.23 f
-  U2_CONTROLLER/U5/Y (NOR3X2M)                            0.20       0.43 r
-  U2_CONTROLLER/U22/Y (NAND2X2M)                          0.04       0.47 f
-  U2_CONTROLLER/U148/Y (INVX2M)                           0.04       0.51 r
-  U2_CONTROLLER/U147/Y (CLKBUFX2M)                        0.07       0.58 r
+  U2_CONTROLLER/U89/Y (INVX2M)                            0.04       0.23 f
+  U2_CONTROLLER/U7/Y (NOR3X2M)                            0.20       0.43 r
+  U2_CONTROLLER/U30/Y (NAND2X2M)                          0.04       0.47 f
+  U2_CONTROLLER/U148/Y (INVX2M)                           0.07       0.53 r
   U2_CONTROLLER/o_ALU_EN (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
-                                                          0.00       0.58 r
-  U0_ALU/i_Enable (ALU_DATA_WIDTH8)                       0.00       0.58 r
-  U0_ALU/o_OUT_Valid_reg/D (DFFRQX2M)                     0.00       0.58 r
-  data arrival time                                                  0.58
+                                                          0.00       0.53 r
+  U0_ALU/i_Enable (ALU_DATA_WIDTH8)                       0.00       0.53 r
+  U0_ALU/o_OUT_Valid_reg/D (DFFRQX2M)                     0.00       0.53 r
+  data arrival time                                                  0.53
 
   clock ALU_CLK (rise edge)                              10.00      10.00
   clock network delay (ideal)                             0.00      10.00
@@ -978,54 +977,9 @@ Wire Load Model Mode: top
   data required time                                                 9.70
   --------------------------------------------------------------------------
   data required time                                                 9.70
-  data arrival time                                                 -0.58
+  data arrival time                                                 -0.53
   --------------------------------------------------------------------------
-  slack (MET)                                                        9.12
-
-
-  Startpoint: U2_CONTROLLER/present_state_reg[3]
-              (rising edge-triggered flip-flop clocked by REF_CLK)
-  Endpoint: U_12_CLK_GATE/Latch_Out_reg
-            (negative level-sensitive latch clocked by REF_CLK)
-  Path Group: REF_CLK
-  Path Type: max
-
-  Point                                                   Incr       Path
-  --------------------------------------------------------------------------
-  clock REF_CLK (rise edge)                               0.00       0.00
-  clock network delay (ideal)                             0.00       0.00
-  U2_CONTROLLER/present_state_reg[3]/CK (DFFRQX2M)        0.00       0.00 r
-  U2_CONTROLLER/present_state_reg[3]/Q (DFFRQX2M)         0.18       0.18 r
-  U2_CONTROLLER/U50/Y (INVX2M)                            0.04       0.23 f
-  U2_CONTROLLER/U5/Y (NOR3X2M)                            0.20       0.43 r
-  U2_CONTROLLER/U22/Y (NAND2X2M)                          0.04       0.47 f
-  U2_CONTROLLER/U148/Y (INVX2M)                           0.04       0.51 r
-  U2_CONTROLLER/o_CLK_EN (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
-                                                          0.00       0.51 r
-  U_12_CLK_GATE/i_CLK_EN (CLK_GATING)                     0.00       0.51 r
-  U_12_CLK_GATE/Latch_Out_reg/D (TLATNX2M)                0.00       0.51 r
-  data arrival time                                                  0.51
-
-  clock REF_CLK (fall edge)                               5.00       5.00
-  clock network delay (ideal)                             0.00       5.00
-  clock uncertainty                                      -0.20       4.80
-  U_12_CLK_GATE/Latch_Out_reg/GN (TLATNX2M)               0.00       4.80 f
-  time borrowed from endpoint                             0.00       4.80
-  data required time                                                 4.80
-  --------------------------------------------------------------------------
-  data required time                                                 4.80
-  data arrival time                                                 -0.51
-  --------------------------------------------------------------------------
-  slack (MET)                                                        4.29
-
-  Time Borrowing Information
-  --------------------------------------------------------------
-  REF_CLK nominal pulse width                             5.00   
-  library setup time                                     -0.03   
-  --------------------------------------------------------------
-  max time borrow                                         4.97   
-  actual time borrow                                      0.00   
-  --------------------------------------------------------------
+  slack (MET)                                                        9.17
 
 
   Startpoint: PAR_TYP (input port clocked by REF_CLK)
@@ -1042,8 +996,8 @@ Wire Load Model Mode: top
   PAR_TYP (in)                                            0.01       2.01 r
   U2_CONTROLLER/i_Par_Type (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       2.01 r
-  U2_CONTROLLER/U72/Y (AOI22X1M)                          0.04       2.05 f
-  U2_CONTROLLER/U70/Y (OAI211X2M)                         0.04       2.09 r
+  U2_CONTROLLER/U70/Y (AOI22X1M)                          0.04       2.05 f
+  U2_CONTROLLER/U68/Y (OAI211X2M)                         0.04       2.09 r
   U2_CONTROLLER/CTRL_Reg_Data1_reg[1]/D (DFFRQX2M)        0.00       2.09 r
   data arrival time                                                  2.09
 
@@ -1074,8 +1028,8 @@ Wire Load Model Mode: top
   PAR_EN (in)                                             0.01       2.01 r
   U2_CONTROLLER/i_Par_En (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       2.01 r
-  U2_CONTROLLER/U66/Y (AOI22X1M)                          0.04       2.05 f
-  U2_CONTROLLER/U64/Y (OAI211X2M)                         0.04       2.09 r
+  U2_CONTROLLER/U64/Y (AOI22X1M)                          0.04       2.05 f
+  U2_CONTROLLER/U62/Y (OAI211X2M)                         0.04       2.09 r
   U2_CONTROLLER/CTRL_Reg_Data1_reg[0]/D (DFFRQX2M)        0.00       2.09 r
   data arrival time                                                  2.09
 
@@ -1107,8 +1061,8 @@ Wire Load Model Mode: top
   PRESCALE[0] (in)                                        0.01       2.01 r
   U2_CONTROLLER/i_Prescale[0] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       2.01 r
-  U2_CONTROLLER/U69/Y (AOI22X1M)                          0.04       2.05 f
-  U2_CONTROLLER/U67/Y (OAI211X2M)                         0.04       2.09 r
+  U2_CONTROLLER/U67/Y (AOI22X1M)                          0.04       2.05 f
+  U2_CONTROLLER/U65/Y (OAI211X2M)                         0.04       2.09 r
   U2_CONTROLLER/CTRL_Reg_Data1_reg[2]/D (DFFRQX2M)        0.00       2.09 r
   data arrival time                                                  2.09
 
@@ -1140,8 +1094,8 @@ Wire Load Model Mode: top
   PRESCALE[1] (in)                                        0.01       2.01 r
   U2_CONTROLLER/i_Prescale[1] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       2.01 r
-  U2_CONTROLLER/U75/Y (AOI22X1M)                          0.04       2.05 f
-  U2_CONTROLLER/U73/Y (OAI211X2M)                         0.04       2.09 r
+  U2_CONTROLLER/U73/Y (AOI22X1M)                          0.04       2.05 f
+  U2_CONTROLLER/U71/Y (OAI211X2M)                         0.04       2.09 r
   U2_CONTROLLER/CTRL_Reg_Data1_reg[3]/D (DFFRQX2M)        0.00       2.09 r
   data arrival time                                                  2.09
 
@@ -1173,8 +1127,8 @@ Wire Load Model Mode: top
   PRESCALE[5] (in)                                        0.01       2.01 r
   U2_CONTROLLER/i_Prescale[5] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       2.01 r
-  U2_CONTROLLER/U63/Y (AOI22X1M)                          0.04       2.05 f
-  U2_CONTROLLER/U61/Y (OAI211X2M)                         0.04       2.09 r
+  U2_CONTROLLER/U61/Y (AOI22X1M)                          0.04       2.05 f
+  U2_CONTROLLER/U59/Y (OAI211X2M)                         0.04       2.09 r
   U2_CONTROLLER/CTRL_Reg_Data1_reg[7]/D (DFFRQX2M)        0.00       2.09 r
   data arrival time                                                  2.09
 
@@ -1206,8 +1160,8 @@ Wire Load Model Mode: top
   PRESCALE[4] (in)                                        0.01       2.01 r
   U2_CONTROLLER/i_Prescale[4] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       2.01 r
-  U2_CONTROLLER/U60/Y (AOI22X1M)                          0.04       2.05 f
-  U2_CONTROLLER/U58/Y (OAI211X2M)                         0.04       2.09 r
+  U2_CONTROLLER/U58/Y (AOI22X1M)                          0.04       2.05 f
+  U2_CONTROLLER/U56/Y (OAI211X2M)                         0.04       2.09 r
   U2_CONTROLLER/CTRL_Reg_Data1_reg[6]/D (DFFRQX2M)        0.00       2.09 r
   data arrival time                                                  2.09
 
@@ -1239,8 +1193,8 @@ Wire Load Model Mode: top
   PRESCALE[3] (in)                                        0.01       2.01 r
   U2_CONTROLLER/i_Prescale[3] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       2.01 r
-  U2_CONTROLLER/U57/Y (AOI22X1M)                          0.04       2.05 f
-  U2_CONTROLLER/U55/Y (OAI211X2M)                         0.04       2.09 r
+  U2_CONTROLLER/U55/Y (AOI22X1M)                          0.04       2.05 f
+  U2_CONTROLLER/U53/Y (OAI211X2M)                         0.04       2.09 r
   U2_CONTROLLER/CTRL_Reg_Data1_reg[5]/D (DFFRQX2M)        0.00       2.09 r
   data arrival time                                                  2.09
 
@@ -1272,8 +1226,8 @@ Wire Load Model Mode: top
   PRESCALE[2] (in)                                        0.01       2.01 r
   U2_CONTROLLER/i_Prescale[2] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       2.01 r
-  U2_CONTROLLER/U54/Y (AOI22X1M)                          0.04       2.05 f
-  U2_CONTROLLER/U52/Y (OAI211X2M)                         0.04       2.09 r
+  U2_CONTROLLER/U52/Y (AOI22X1M)                          0.04       2.05 f
+  U2_CONTROLLER/U50/Y (OAI211X2M)                         0.04       2.09 r
   U2_CONTROLLER/CTRL_Reg_Data1_reg[4]/D (DFFRQX2M)        0.00       2.09 r
   data arrival time                                                  2.09
 
@@ -1303,11 +1257,11 @@ Wire Load Model Mode: top
   clock network delay (ideal)                             0.00       0.00
   U2_CONTROLLER/present_state_reg[4]/CK (DFFRQX2M)        0.00       0.00 r
   U2_CONTROLLER/present_state_reg[4]/Q (DFFRQX2M)         0.21       0.21 f
-  U2_CONTROLLER/U6/Y (NOR2X2M)                            0.15       0.36 r
+  U2_CONTROLLER/U9/Y (NOR2X2M)                            0.15       0.36 r
   U2_CONTROLLER/U33/Y (NAND2X2M)                          0.04       0.40 f
-  U2_CONTROLLER/U8/Y (OAI31X1M)                           0.18       0.58 r
-  U2_CONTROLLER/U26/Y (NOR2X2M)                           0.07       0.65 f
-  U2_CONTROLLER/U99/Y (AOI2BB1X2M)                        0.10       0.74 f
+  U2_CONTROLLER/U6/Y (OAI31X1M)                           0.18       0.58 r
+  U2_CONTROLLER/U25/Y (NOR2X2M)                           0.07       0.65 f
+  U2_CONTROLLER/U98/Y (AOI2BB1X2M)                        0.10       0.74 f
   U2_CONTROLLER/o_Address[0] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       0.74 f
   U3/Y (CLKBUFX2M)                                        0.06       0.81 f
@@ -1347,11 +1301,11 @@ Wire Load Model Mode: top
   clock network delay (ideal)                             0.00       0.00
   U2_CONTROLLER/present_state_reg[4]/CK (DFFRQX2M)        0.00       0.00 r
   U2_CONTROLLER/present_state_reg[4]/Q (DFFRQX2M)         0.21       0.21 f
-  U2_CONTROLLER/U6/Y (NOR2X2M)                            0.15       0.36 r
+  U2_CONTROLLER/U9/Y (NOR2X2M)                            0.15       0.36 r
   U2_CONTROLLER/U33/Y (NAND2X2M)                          0.04       0.40 f
-  U2_CONTROLLER/U8/Y (OAI31X1M)                           0.18       0.58 r
-  U2_CONTROLLER/U26/Y (NOR2X2M)                           0.07       0.65 f
-  U2_CONTROLLER/U99/Y (AOI2BB1X2M)                        0.10       0.74 f
+  U2_CONTROLLER/U6/Y (OAI31X1M)                           0.18       0.58 r
+  U2_CONTROLLER/U25/Y (NOR2X2M)                           0.07       0.65 f
+  U2_CONTROLLER/U98/Y (AOI2BB1X2M)                        0.10       0.74 f
   U2_CONTROLLER/o_Address[0] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       0.74 f
   U3/Y (CLKBUFX2M)                                        0.06       0.81 f
@@ -1391,11 +1345,11 @@ Wire Load Model Mode: top
   clock network delay (ideal)                             0.00       0.00
   U2_CONTROLLER/present_state_reg[4]/CK (DFFRQX2M)        0.00       0.00 r
   U2_CONTROLLER/present_state_reg[4]/Q (DFFRQX2M)         0.21       0.21 f
-  U2_CONTROLLER/U6/Y (NOR2X2M)                            0.15       0.36 r
+  U2_CONTROLLER/U9/Y (NOR2X2M)                            0.15       0.36 r
   U2_CONTROLLER/U33/Y (NAND2X2M)                          0.04       0.40 f
-  U2_CONTROLLER/U8/Y (OAI31X1M)                           0.18       0.58 r
-  U2_CONTROLLER/U26/Y (NOR2X2M)                           0.07       0.65 f
-  U2_CONTROLLER/U99/Y (AOI2BB1X2M)                        0.10       0.74 f
+  U2_CONTROLLER/U6/Y (OAI31X1M)                           0.18       0.58 r
+  U2_CONTROLLER/U25/Y (NOR2X2M)                           0.07       0.65 f
+  U2_CONTROLLER/U98/Y (AOI2BB1X2M)                        0.10       0.74 f
   U2_CONTROLLER/o_Address[0] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       0.74 f
   U3/Y (CLKBUFX2M)                                        0.06       0.81 f
@@ -1435,11 +1389,11 @@ Wire Load Model Mode: top
   clock network delay (ideal)                             0.00       0.00
   U2_CONTROLLER/present_state_reg[4]/CK (DFFRQX2M)        0.00       0.00 r
   U2_CONTROLLER/present_state_reg[4]/Q (DFFRQX2M)         0.21       0.21 f
-  U2_CONTROLLER/U6/Y (NOR2X2M)                            0.15       0.36 r
+  U2_CONTROLLER/U9/Y (NOR2X2M)                            0.15       0.36 r
   U2_CONTROLLER/U33/Y (NAND2X2M)                          0.04       0.40 f
-  U2_CONTROLLER/U8/Y (OAI31X1M)                           0.18       0.58 r
-  U2_CONTROLLER/U26/Y (NOR2X2M)                           0.07       0.65 f
-  U2_CONTROLLER/U99/Y (AOI2BB1X2M)                        0.10       0.74 f
+  U2_CONTROLLER/U6/Y (OAI31X1M)                           0.18       0.58 r
+  U2_CONTROLLER/U25/Y (NOR2X2M)                           0.07       0.65 f
+  U2_CONTROLLER/U98/Y (AOI2BB1X2M)                        0.10       0.74 f
   U2_CONTROLLER/o_Address[0] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       0.74 f
   U3/Y (CLKBUFX2M)                                        0.06       0.81 f
@@ -1479,11 +1433,11 @@ Wire Load Model Mode: top
   clock network delay (ideal)                             0.00       0.00
   U2_CONTROLLER/present_state_reg[4]/CK (DFFRQX2M)        0.00       0.00 r
   U2_CONTROLLER/present_state_reg[4]/Q (DFFRQX2M)         0.21       0.21 f
-  U2_CONTROLLER/U6/Y (NOR2X2M)                            0.15       0.36 r
+  U2_CONTROLLER/U9/Y (NOR2X2M)                            0.15       0.36 r
   U2_CONTROLLER/U33/Y (NAND2X2M)                          0.04       0.40 f
-  U2_CONTROLLER/U8/Y (OAI31X1M)                           0.18       0.58 r
-  U2_CONTROLLER/U26/Y (NOR2X2M)                           0.07       0.65 f
-  U2_CONTROLLER/U99/Y (AOI2BB1X2M)                        0.10       0.74 f
+  U2_CONTROLLER/U6/Y (OAI31X1M)                           0.18       0.58 r
+  U2_CONTROLLER/U25/Y (NOR2X2M)                           0.07       0.65 f
+  U2_CONTROLLER/U98/Y (AOI2BB1X2M)                        0.10       0.74 f
   U2_CONTROLLER/o_Address[0] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       0.74 f
   U3/Y (CLKBUFX2M)                                        0.06       0.81 f
@@ -1523,11 +1477,11 @@ Wire Load Model Mode: top
   clock network delay (ideal)                             0.00       0.00
   U2_CONTROLLER/present_state_reg[4]/CK (DFFRQX2M)        0.00       0.00 r
   U2_CONTROLLER/present_state_reg[4]/Q (DFFRQX2M)         0.21       0.21 f
-  U2_CONTROLLER/U6/Y (NOR2X2M)                            0.15       0.36 r
+  U2_CONTROLLER/U9/Y (NOR2X2M)                            0.15       0.36 r
   U2_CONTROLLER/U33/Y (NAND2X2M)                          0.04       0.40 f
-  U2_CONTROLLER/U8/Y (OAI31X1M)                           0.18       0.58 r
-  U2_CONTROLLER/U26/Y (NOR2X2M)                           0.07       0.65 f
-  U2_CONTROLLER/U99/Y (AOI2BB1X2M)                        0.10       0.74 f
+  U2_CONTROLLER/U6/Y (OAI31X1M)                           0.18       0.58 r
+  U2_CONTROLLER/U25/Y (NOR2X2M)                           0.07       0.65 f
+  U2_CONTROLLER/U98/Y (AOI2BB1X2M)                        0.10       0.74 f
   U2_CONTROLLER/o_Address[0] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       0.74 f
   U3/Y (CLKBUFX2M)                                        0.06       0.81 f
@@ -1567,11 +1521,11 @@ Wire Load Model Mode: top
   clock network delay (ideal)                             0.00       0.00
   U2_CONTROLLER/present_state_reg[4]/CK (DFFRQX2M)        0.00       0.00 r
   U2_CONTROLLER/present_state_reg[4]/Q (DFFRQX2M)         0.21       0.21 f
-  U2_CONTROLLER/U6/Y (NOR2X2M)                            0.15       0.36 r
+  U2_CONTROLLER/U9/Y (NOR2X2M)                            0.15       0.36 r
   U2_CONTROLLER/U33/Y (NAND2X2M)                          0.04       0.40 f
-  U2_CONTROLLER/U8/Y (OAI31X1M)                           0.18       0.58 r
-  U2_CONTROLLER/U26/Y (NOR2X2M)                           0.07       0.65 f
-  U2_CONTROLLER/U99/Y (AOI2BB1X2M)                        0.10       0.74 f
+  U2_CONTROLLER/U6/Y (OAI31X1M)                           0.18       0.58 r
+  U2_CONTROLLER/U25/Y (NOR2X2M)                           0.07       0.65 f
+  U2_CONTROLLER/U98/Y (AOI2BB1X2M)                        0.10       0.74 f
   U2_CONTROLLER/o_Address[0] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       0.74 f
   U3/Y (CLKBUFX2M)                                        0.06       0.81 f
@@ -1611,11 +1565,11 @@ Wire Load Model Mode: top
   clock network delay (ideal)                             0.00       0.00
   U2_CONTROLLER/present_state_reg[4]/CK (DFFRQX2M)        0.00       0.00 r
   U2_CONTROLLER/present_state_reg[4]/Q (DFFRQX2M)         0.21       0.21 f
-  U2_CONTROLLER/U6/Y (NOR2X2M)                            0.15       0.36 r
+  U2_CONTROLLER/U9/Y (NOR2X2M)                            0.15       0.36 r
   U2_CONTROLLER/U33/Y (NAND2X2M)                          0.04       0.40 f
-  U2_CONTROLLER/U8/Y (OAI31X1M)                           0.18       0.58 r
-  U2_CONTROLLER/U26/Y (NOR2X2M)                           0.07       0.65 f
-  U2_CONTROLLER/U99/Y (AOI2BB1X2M)                        0.10       0.74 f
+  U2_CONTROLLER/U6/Y (OAI31X1M)                           0.18       0.58 r
+  U2_CONTROLLER/U25/Y (NOR2X2M)                           0.07       0.65 f
+  U2_CONTROLLER/U98/Y (AOI2BB1X2M)                        0.10       0.74 f
   U2_CONTROLLER/o_Address[0] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       0.74 f
   U3/Y (CLKBUFX2M)                                        0.06       0.81 f
@@ -1644,6 +1598,49 @@ Wire Load Model Mode: top
 
   Startpoint: U2_CONTROLLER/present_state_reg[4]
               (rising edge-triggered flip-flop clocked by REF_CLK)
+  Endpoint: U1_REG_FILE/Reg_File_reg[8][3]
+            (rising edge-triggered flip-flop clocked by REF_CLK)
+  Path Group: REF_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REF_CLK (rise edge)                               0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U2_CONTROLLER/present_state_reg[4]/CK (DFFRQX2M)        0.00       0.00 r
+  U2_CONTROLLER/present_state_reg[4]/Q (DFFRQX2M)         0.21       0.21 f
+  U2_CONTROLLER/U9/Y (NOR2X2M)                            0.15       0.36 r
+  U2_CONTROLLER/U33/Y (NAND2X2M)                          0.04       0.40 f
+  U2_CONTROLLER/U6/Y (OAI31X1M)                           0.18       0.58 r
+  U2_CONTROLLER/U25/Y (NOR2X2M)                           0.07       0.65 f
+  U2_CONTROLLER/U5/Y (NOR3X6M)                            0.34       0.98 r
+  U2_CONTROLLER/o_Address[3] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
+                                                          0.00       0.98 r
+  U1_REG_FILE/i_Address[3] (Register_File_REG_WIDTH8_ADDR_WIDTH4)
+                                                          0.00       0.98 r
+  U1_REG_FILE/U58/Y (AND2X2M)                             0.09       1.08 r
+  U1_REG_FILE/U51/Y (AND2X2M)                             0.09       1.16 r
+  U1_REG_FILE/U47/Y (NAND3X2M)                            0.04       1.20 f
+  U1_REG_FILE/U27/Y (CLKBUFX2M)                           0.09       1.30 f
+  U1_REG_FILE/U148/Y (OAI2BB2X1M)                         0.07       1.36 r
+  U1_REG_FILE/Reg_File_reg[8][3]/D (DFFRQX2M)             0.00       1.36 r
+  data arrival time                                                  1.36
+
+  clock REF_CLK (rise edge)                              10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  clock uncertainty                                      -0.20       9.80
+  U1_REG_FILE/Reg_File_reg[8][3]/CK (DFFRQX2M)            0.00       9.80 r
+  library setup time                                     -0.10       9.70
+  data required time                                                 9.70
+  --------------------------------------------------------------------------
+  data required time                                                 9.70
+  data arrival time                                                 -1.36
+  --------------------------------------------------------------------------
+  slack (MET)                                                        8.34
+
+
+  Startpoint: U2_CONTROLLER/present_state_reg[4]
+              (rising edge-triggered flip-flop clocked by REF_CLK)
   Endpoint: U1_REG_FILE/Reg_File_reg[8][2]
             (rising edge-triggered flip-flop clocked by REF_CLK)
   Path Group: REF_CLK
@@ -1655,11 +1652,11 @@ Wire Load Model Mode: top
   clock network delay (ideal)                             0.00       0.00
   U2_CONTROLLER/present_state_reg[4]/CK (DFFRQX2M)        0.00       0.00 r
   U2_CONTROLLER/present_state_reg[4]/Q (DFFRQX2M)         0.21       0.21 f
-  U2_CONTROLLER/U6/Y (NOR2X2M)                            0.15       0.36 r
+  U2_CONTROLLER/U9/Y (NOR2X2M)                            0.15       0.36 r
   U2_CONTROLLER/U33/Y (NAND2X2M)                          0.04       0.40 f
-  U2_CONTROLLER/U8/Y (OAI31X1M)                           0.18       0.58 r
-  U2_CONTROLLER/U26/Y (NOR2X2M)                           0.07       0.65 f
-  U2_CONTROLLER/U7/Y (NOR3X6M)                            0.34       0.98 r
+  U2_CONTROLLER/U6/Y (OAI31X1M)                           0.18       0.58 r
+  U2_CONTROLLER/U25/Y (NOR2X2M)                           0.07       0.65 f
+  U2_CONTROLLER/U5/Y (NOR3X6M)                            0.34       0.98 r
   U2_CONTROLLER/o_Address[3] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       0.98 r
   U1_REG_FILE/i_Address[3] (Register_File_REG_WIDTH8_ADDR_WIDTH4)
@@ -1698,11 +1695,11 @@ Wire Load Model Mode: top
   clock network delay (ideal)                             0.00       0.00
   U2_CONTROLLER/present_state_reg[4]/CK (DFFRQX2M)        0.00       0.00 r
   U2_CONTROLLER/present_state_reg[4]/Q (DFFRQX2M)         0.21       0.21 f
-  U2_CONTROLLER/U6/Y (NOR2X2M)                            0.15       0.36 r
+  U2_CONTROLLER/U9/Y (NOR2X2M)                            0.15       0.36 r
   U2_CONTROLLER/U33/Y (NAND2X2M)                          0.04       0.40 f
-  U2_CONTROLLER/U8/Y (OAI31X1M)                           0.18       0.58 r
-  U2_CONTROLLER/U26/Y (NOR2X2M)                           0.07       0.65 f
-  U2_CONTROLLER/U7/Y (NOR3X6M)                            0.34       0.98 r
+  U2_CONTROLLER/U6/Y (OAI31X1M)                           0.18       0.58 r
+  U2_CONTROLLER/U25/Y (NOR2X2M)                           0.07       0.65 f
+  U2_CONTROLLER/U5/Y (NOR3X6M)                            0.34       0.98 r
   U2_CONTROLLER/o_Address[3] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       0.98 r
   U1_REG_FILE/i_Address[3] (Register_File_REG_WIDTH8_ADDR_WIDTH4)
@@ -1741,11 +1738,11 @@ Wire Load Model Mode: top
   clock network delay (ideal)                             0.00       0.00
   U2_CONTROLLER/present_state_reg[4]/CK (DFFRQX2M)        0.00       0.00 r
   U2_CONTROLLER/present_state_reg[4]/Q (DFFRQX2M)         0.21       0.21 f
-  U2_CONTROLLER/U6/Y (NOR2X2M)                            0.15       0.36 r
+  U2_CONTROLLER/U9/Y (NOR2X2M)                            0.15       0.36 r
   U2_CONTROLLER/U33/Y (NAND2X2M)                          0.04       0.40 f
-  U2_CONTROLLER/U8/Y (OAI31X1M)                           0.18       0.58 r
-  U2_CONTROLLER/U26/Y (NOR2X2M)                           0.07       0.65 f
-  U2_CONTROLLER/U7/Y (NOR3X6M)                            0.34       0.98 r
+  U2_CONTROLLER/U6/Y (OAI31X1M)                           0.18       0.58 r
+  U2_CONTROLLER/U25/Y (NOR2X2M)                           0.07       0.65 f
+  U2_CONTROLLER/U5/Y (NOR3X6M)                            0.34       0.98 r
   U2_CONTROLLER/o_Address[3] (SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4)
                                                           0.00       0.98 r
   U1_REG_FILE/i_Address[3] (Register_File_REG_WIDTH8_ADDR_WIDTH4)

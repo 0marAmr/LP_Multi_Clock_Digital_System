@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////
 // Created by: Synopsys DC Expert(TM) in wire load mode
 // Version   : K-2015.06
-// Date      : Thu Sep 21 04:51:08 2023
+// Date      : Thu Sep 21 19:11:00 2023
 /////////////////////////////////////////////////////////////
 
 
@@ -1608,10 +1608,10 @@ module SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4 ( i_CLK, i_RST,
   DFFRQX2M \CTRL_Reg_Data1_reg[4]  ( .D(n122), .CK(i_CLK), .RN(n22), .Q(
         o_WrData[4]) );
   DFFRX1M \CTRL_Reg_Addr_reg[1]  ( .D(n117), .CK(i_CLK), .RN(n21), .QN(n11) );
-  DFFRX1M \CTRL_Reg_Addr_reg[3]  ( .D(n115), .CK(i_CLK), .RN(n21), .QN(n9) );
-  DFFRX1M \CTRL_Reg_Addr_reg[2]  ( .D(n116), .CK(i_CLK), .RN(n21), .QN(n10) );
   DFFRQX2M \present_state_reg[0]  ( .D(next_state[0]), .CK(i_CLK), .RN(n22), 
         .Q(present_state[0]) );
+  DFFRX1M \CTRL_Reg_Addr_reg[3]  ( .D(n115), .CK(i_CLK), .RN(n21), .QN(n9) );
+  DFFRX1M \CTRL_Reg_Addr_reg[2]  ( .D(n116), .CK(i_CLK), .RN(n21), .QN(n10) );
   DFFRQX2M \present_state_reg[1]  ( .D(next_state[1]), .CK(i_CLK), .RN(n22), 
         .Q(present_state[1]) );
   DFFRQX2M \present_state_reg[3]  ( .D(next_state[3]), .CK(i_CLK), .RN(n22), 
@@ -1621,13 +1621,13 @@ module SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4 ( i_CLK, i_RST,
   DFFRQX2M \present_state_reg[2]  ( .D(next_state[2]), .CK(i_CLK), .RN(n22), 
         .Q(present_state[2]) );
   CLKINVX2M U3 ( .A(1'b0), .Y(o_clk_div_en) );
-  NOR3X2M U5 ( .A(present_state[1]), .B(present_state[2]), .C(n136), .Y(n82)
-         );
-  NOR2X2M U6 ( .A(n127), .B(present_state[4]), .Y(n68) );
-  NOR3X6M U7 ( .A(n9), .B(n39), .C(n35), .Y(o_Address[3]) );
-  OAI31X1M U8 ( .A0(n84), .A1(present_state[3]), .A2(present_state[1]), .B0(
+  NOR3X6M U5 ( .A(n9), .B(n39), .C(n35), .Y(o_Address[3]) );
+  OAI31X1M U6 ( .A0(n84), .A1(present_state[3]), .A2(present_state[1]), .B0(
         n41), .Y(n44) );
-  NOR2X2M U9 ( .A(present_state[4]), .B(present_state[0]), .Y(n83) );
+  NOR3X2M U7 ( .A(present_state[1]), .B(present_state[2]), .C(n136), .Y(n82)
+         );
+  NOR2X2M U8 ( .A(present_state[4]), .B(present_state[0]), .Y(n83) );
+  NOR2X2M U9 ( .A(n127), .B(present_state[4]), .Y(n68) );
   INVX2M U10 ( .A(n88), .Y(n34) );
   AND4X2M U11 ( .A(n19), .B(n51), .C(n43), .D(n81), .Y(n92) );
   NAND2BX2M U12 ( .AN(n84), .B(n69), .Y(n46) );
@@ -1640,16 +1640,16 @@ module SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4 ( i_CLK, i_RST,
   INVX2M U19 ( .A(n70), .Y(n132) );
   INVX2M U20 ( .A(n23), .Y(n21) );
   INVX2M U21 ( .A(n23), .Y(n22) );
-  NAND2X2M U22 ( .A(n82), .B(n68), .Y(n50) );
-  NAND3BX2M U23 ( .AN(n44), .B(n42), .C(n59), .Y(o_WrEn) );
-  OAI2B11X2M U24 ( .A1N(i_FIFO_FULL), .A0(n20), .B0(n51), .C0(n36), .Y(
+  NAND3BX2M U22 ( .AN(n44), .B(n42), .C(n59), .Y(o_WrEn) );
+  OAI2B11X2M U23 ( .A1N(i_FIFO_FULL), .A0(n20), .B0(n51), .C0(n36), .Y(
         next_state[4]) );
-  NAND3X2M U25 ( .A(n83), .B(n136), .C(n87), .Y(n43) );
-  NOR2X2M U26 ( .A(n44), .B(o_RdEn), .Y(n39) );
-  NOR2X2M U27 ( .A(n136), .B(n134), .Y(n69) );
-  NAND2X2M U28 ( .A(n82), .B(n83), .Y(n51) );
-  NAND3X2M U29 ( .A(n69), .B(n135), .C(n83), .Y(n42) );
-  NOR2X2M U30 ( .A(n32), .B(n64), .Y(n53) );
+  NAND3X2M U24 ( .A(n83), .B(n136), .C(n87), .Y(n43) );
+  NOR2X2M U25 ( .A(n44), .B(o_RdEn), .Y(n39) );
+  NOR2X2M U26 ( .A(n136), .B(n134), .Y(n69) );
+  NAND2X2M U27 ( .A(n82), .B(n83), .Y(n51) );
+  NAND3X2M U28 ( .A(n69), .B(n135), .C(n83), .Y(n42) );
+  NOR2X2M U29 ( .A(n32), .B(n64), .Y(n53) );
+  NAND2X2M U30 ( .A(n82), .B(n68), .Y(n50) );
   NOR2BX2M U31 ( .AN(n85), .B(n84), .Y(n80) );
   NAND3X2M U32 ( .A(n41), .B(n42), .C(n43), .Y(n40) );
   NAND2X2M U33 ( .A(n68), .B(n135), .Y(n84) );
@@ -1669,105 +1669,105 @@ module SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4 ( i_CLK, i_RST,
   NAND3X2M U47 ( .A(n42), .B(n81), .C(n20), .Y(n77) );
   AND3X2M U48 ( .A(n54), .B(n31), .C(n27), .Y(n61) );
   INVX2M U49 ( .A(i_RST), .Y(n23) );
-  INVX2M U50 ( .A(present_state[3]), .Y(n136) );
-  INVX2M U51 ( .A(present_state[0]), .Y(n127) );
-  OAI211X2M U52 ( .A0(n19), .A1(n27), .B0(n97), .C0(n98), .Y(n122) );
-  AOI22X1M U53 ( .A0(i_ALU_OUT[4]), .A1(n129), .B0(i_RdData[4]), .B1(o_RdEn), 
+  OAI211X2M U50 ( .A0(n19), .A1(n27), .B0(n97), .C0(n98), .Y(n122) );
+  AOI22X1M U51 ( .A0(i_ALU_OUT[4]), .A1(n129), .B0(i_RdData[4]), .B1(o_RdEn), 
         .Y(n97) );
-  AOI22X1M U54 ( .A0(i_Prescale[2]), .A1(n131), .B0(n92), .B1(o_WrData[4]), 
+  AOI22X1M U52 ( .A0(i_Prescale[2]), .A1(n131), .B0(n92), .B1(o_WrData[4]), 
         .Y(n98) );
-  OAI211X2M U55 ( .A0(n19), .A1(n26), .B0(n95), .C0(n96), .Y(n121) );
-  AOI22X1M U56 ( .A0(i_ALU_OUT[5]), .A1(n129), .B0(i_RdData[5]), .B1(o_RdEn), 
+  OAI211X2M U53 ( .A0(n19), .A1(n26), .B0(n95), .C0(n96), .Y(n121) );
+  AOI22X1M U54 ( .A0(i_ALU_OUT[5]), .A1(n129), .B0(i_RdData[5]), .B1(o_RdEn), 
         .Y(n95) );
-  AOI22X1M U57 ( .A0(i_Prescale[3]), .A1(n131), .B0(n92), .B1(o_WrData[5]), 
+  AOI22X1M U55 ( .A0(i_Prescale[3]), .A1(n131), .B0(n92), .B1(o_WrData[5]), 
         .Y(n96) );
-  OAI211X2M U58 ( .A0(n19), .A1(n25), .B0(n93), .C0(n94), .Y(n120) );
-  AOI22X1M U59 ( .A0(i_ALU_OUT[6]), .A1(n129), .B0(i_RdData[6]), .B1(o_RdEn), 
+  OAI211X2M U56 ( .A0(n19), .A1(n25), .B0(n93), .C0(n94), .Y(n120) );
+  AOI22X1M U57 ( .A0(i_ALU_OUT[6]), .A1(n129), .B0(i_RdData[6]), .B1(o_RdEn), 
         .Y(n93) );
-  AOI22X1M U60 ( .A0(i_Prescale[4]), .A1(n131), .B0(n92), .B1(o_WrData[6]), 
+  AOI22X1M U58 ( .A0(i_Prescale[4]), .A1(n131), .B0(n92), .B1(o_WrData[6]), 
         .Y(n94) );
-  OAI211X2M U61 ( .A0(n19), .A1(n24), .B0(n90), .C0(n91), .Y(n119) );
-  AOI22X1M U62 ( .A0(i_ALU_OUT[7]), .A1(n129), .B0(i_RdData[7]), .B1(o_RdEn), 
+  OAI211X2M U59 ( .A0(n19), .A1(n24), .B0(n90), .C0(n91), .Y(n119) );
+  AOI22X1M U60 ( .A0(i_ALU_OUT[7]), .A1(n129), .B0(i_RdData[7]), .B1(o_RdEn), 
         .Y(n90) );
-  AOI22X1M U63 ( .A0(i_Prescale[5]), .A1(n131), .B0(n92), .B1(o_WrData[7]), 
+  AOI22X1M U61 ( .A0(i_Prescale[5]), .A1(n131), .B0(n92), .B1(o_WrData[7]), 
         .Y(n91) );
-  OAI211X2M U64 ( .A0(n19), .A1(n31), .B0(n105), .C0(n106), .Y(n126) );
-  AOI22X1M U65 ( .A0(i_ALU_OUT[0]), .A1(n129), .B0(i_RdData[0]), .B1(o_RdEn), 
+  OAI211X2M U62 ( .A0(n19), .A1(n31), .B0(n105), .C0(n106), .Y(n126) );
+  AOI22X1M U63 ( .A0(i_ALU_OUT[0]), .A1(n129), .B0(i_RdData[0]), .B1(o_RdEn), 
         .Y(n105) );
-  AOI22X1M U66 ( .A0(i_Par_En), .A1(n131), .B0(n92), .B1(o_ALU_FUN[0]), .Y(
+  AOI22X1M U64 ( .A0(i_Par_En), .A1(n131), .B0(n92), .B1(o_ALU_FUN[0]), .Y(
         n106) );
-  OAI211X2M U67 ( .A0(n19), .A1(n29), .B0(n101), .C0(n102), .Y(n124) );
-  AOI22X1M U68 ( .A0(i_ALU_OUT[2]), .A1(n129), .B0(i_RdData[2]), .B1(o_RdEn), 
+  OAI211X2M U65 ( .A0(n19), .A1(n29), .B0(n101), .C0(n102), .Y(n124) );
+  AOI22X1M U66 ( .A0(i_ALU_OUT[2]), .A1(n129), .B0(i_RdData[2]), .B1(o_RdEn), 
         .Y(n101) );
-  AOI22X1M U69 ( .A0(i_Prescale[0]), .A1(n131), .B0(n92), .B1(o_ALU_FUN[2]), 
+  AOI22X1M U67 ( .A0(i_Prescale[0]), .A1(n131), .B0(n92), .B1(o_ALU_FUN[2]), 
         .Y(n102) );
-  OAI211X2M U70 ( .A0(n19), .A1(n30), .B0(n103), .C0(n104), .Y(n125) );
-  AOI22X1M U71 ( .A0(i_ALU_OUT[1]), .A1(n129), .B0(i_RdData[1]), .B1(o_RdEn), 
+  OAI211X2M U68 ( .A0(n19), .A1(n30), .B0(n103), .C0(n104), .Y(n125) );
+  AOI22X1M U69 ( .A0(i_ALU_OUT[1]), .A1(n129), .B0(i_RdData[1]), .B1(o_RdEn), 
         .Y(n103) );
-  AOI22X1M U72 ( .A0(i_Par_Type), .A1(n131), .B0(n92), .B1(o_ALU_FUN[1]), .Y(
+  AOI22X1M U70 ( .A0(i_Par_Type), .A1(n131), .B0(n92), .B1(o_ALU_FUN[1]), .Y(
         n104) );
-  OAI211X2M U73 ( .A0(n19), .A1(n28), .B0(n99), .C0(n100), .Y(n123) );
-  AOI22X1M U74 ( .A0(i_ALU_OUT[3]), .A1(n129), .B0(i_RdData[3]), .B1(o_RdEn), 
+  OAI211X2M U71 ( .A0(n19), .A1(n28), .B0(n99), .C0(n100), .Y(n123) );
+  AOI22X1M U72 ( .A0(i_ALU_OUT[3]), .A1(n129), .B0(i_RdData[3]), .B1(o_RdEn), 
         .Y(n99) );
-  AOI22X1M U75 ( .A0(i_Prescale[1]), .A1(n131), .B0(n92), .B1(o_ALU_FUN[3]), 
+  AOI22X1M U73 ( .A0(i_Prescale[1]), .A1(n131), .B0(n92), .B1(o_ALU_FUN[3]), 
         .Y(n100) );
-  NOR3X4M U76 ( .A(n10), .B(n39), .C(n35), .Y(o_Address[2]) );
-  OAI221X1M U77 ( .A0(n82), .A1(n137), .B0(i_FIFO_FULL), .B1(n37), .C0(n86), 
+  NOR3X4M U74 ( .A(n10), .B(n39), .C(n35), .Y(o_Address[2]) );
+  OAI221X1M U75 ( .A0(n82), .A1(n137), .B0(i_FIFO_FULL), .B1(n37), .C0(n86), 
         .Y(n73) );
-  INVX2M U78 ( .A(present_state[4]), .Y(n137) );
-  OAI2BB1X2M U79 ( .A0N(n79), .A1N(i_RX_D_VLD), .B0(n80), .Y(n86) );
-  NOR2X2M U80 ( .A(n135), .B(present_state[1]), .Y(n87) );
-  NOR2X2M U81 ( .A(n134), .B(present_state[3]), .Y(n85) );
-  AND3X2M U82 ( .A(present_state[2]), .B(n69), .C(n83), .Y(n49) );
-  OAI22X1M U83 ( .A0(i_RX_D_VLD), .A1(n46), .B0(i_FIFO_FULL), .B1(n20), .Y(n72) );
-  NAND3X2M U84 ( .A(n83), .B(present_state[2]), .C(n85), .Y(n55) );
-  NAND3X2M U85 ( .A(n83), .B(present_state[3]), .C(n87), .Y(n37) );
-  NAND3X2M U86 ( .A(n82), .B(n127), .C(present_state[4]), .Y(n36) );
-  INVX2M U87 ( .A(present_state[2]), .Y(n135) );
-  CLKBUFX2M U88 ( .A(n38), .Y(n20) );
-  NAND3X2M U89 ( .A(n82), .B(present_state[0]), .C(present_state[4]), .Y(n38)
+  INVX2M U76 ( .A(present_state[4]), .Y(n137) );
+  OAI2BB1X2M U77 ( .A0N(n79), .A1N(i_RX_D_VLD), .B0(n80), .Y(n86) );
+  NOR2X2M U78 ( .A(n135), .B(present_state[1]), .Y(n87) );
+  NOR2X2M U79 ( .A(n134), .B(present_state[3]), .Y(n85) );
+  AND3X2M U80 ( .A(present_state[2]), .B(n69), .C(n83), .Y(n49) );
+  OAI22X1M U81 ( .A0(i_RX_D_VLD), .A1(n46), .B0(i_FIFO_FULL), .B1(n20), .Y(n72) );
+  NAND3X2M U82 ( .A(n83), .B(present_state[2]), .C(n85), .Y(n55) );
+  NAND3X2M U83 ( .A(n83), .B(present_state[3]), .C(n87), .Y(n37) );
+  NAND3X2M U84 ( .A(n82), .B(n127), .C(present_state[4]), .Y(n36) );
+  INVX2M U85 ( .A(present_state[2]), .Y(n135) );
+  CLKBUFX2M U86 ( .A(n38), .Y(n20) );
+  NAND3X2M U87 ( .A(n82), .B(present_state[0]), .C(present_state[4]), .Y(n38)
          );
-  NAND3X2M U90 ( .A(n68), .B(present_state[3]), .C(n87), .Y(n58) );
-  OAI2BB2X1M U91 ( .B0(n20), .B1(n8), .A0N(n20), .A1N(o_ALU_FUN[0]), .Y(
+  NAND3X2M U88 ( .A(n68), .B(present_state[3]), .C(n87), .Y(n58) );
+  INVX2M U89 ( .A(present_state[3]), .Y(n136) );
+  OAI2BB2X1M U90 ( .B0(n20), .B1(n8), .A0N(n20), .A1N(o_ALU_FUN[0]), .Y(
         o_FIFO_DATA[0]) );
-  OAI2BB2X1M U92 ( .B0(n20), .B1(n7), .A0N(n20), .A1N(o_ALU_FUN[1]), .Y(
+  OAI2BB2X1M U91 ( .B0(n20), .B1(n7), .A0N(n20), .A1N(o_ALU_FUN[1]), .Y(
         o_FIFO_DATA[1]) );
-  OAI2BB2X1M U93 ( .B0(n20), .B1(n6), .A0N(n20), .A1N(o_ALU_FUN[2]), .Y(
+  OAI2BB2X1M U92 ( .B0(n20), .B1(n6), .A0N(n20), .A1N(o_ALU_FUN[2]), .Y(
         o_FIFO_DATA[2]) );
-  OAI2BB2X1M U94 ( .B0(n20), .B1(n5), .A0N(n20), .A1N(o_ALU_FUN[3]), .Y(
+  OAI2BB2X1M U93 ( .B0(n20), .B1(n5), .A0N(n20), .A1N(o_ALU_FUN[3]), .Y(
         o_FIFO_DATA[3]) );
-  OAI2BB2X1M U95 ( .B0(n20), .B1(n4), .A0N(n20), .A1N(o_WrData[4]), .Y(
+  OAI2BB2X1M U94 ( .B0(n20), .B1(n4), .A0N(n20), .A1N(o_WrData[4]), .Y(
         o_FIFO_DATA[4]) );
-  OAI2BB2X1M U96 ( .B0(n20), .B1(n3), .A0N(n20), .A1N(o_WrData[5]), .Y(
+  OAI2BB2X1M U95 ( .B0(n20), .B1(n3), .A0N(n20), .A1N(o_WrData[5]), .Y(
         o_FIFO_DATA[5]) );
-  OAI2BB2X1M U97 ( .B0(n20), .B1(n2), .A0N(n20), .A1N(o_WrData[6]), .Y(
+  OAI2BB2X1M U96 ( .B0(n20), .B1(n2), .A0N(n20), .A1N(o_WrData[6]), .Y(
         o_FIFO_DATA[6]) );
-  OAI2BB2X1M U98 ( .B0(n20), .B1(n1), .A0N(n20), .A1N(o_WrData[7]), .Y(
+  OAI2BB2X1M U97 ( .B0(n20), .B1(n1), .A0N(n20), .A1N(o_WrData[7]), .Y(
         o_FIFO_DATA[7]) );
-  AOI2BB1X2M U99 ( .A0N(\CTRL_Reg_Addr[0] ), .A1N(n39), .B0(n35), .Y(
+  AOI2BB1X2M U98 ( .A0N(\CTRL_Reg_Addr[0] ), .A1N(n39), .B0(n35), .Y(
         o_Address[0]) );
-  NAND3X2M U100 ( .A(n68), .B(n69), .C(present_state[2]), .Y(n59) );
-  NAND3X2M U101 ( .A(present_state[2]), .B(n68), .C(n85), .Y(n41) );
-  INVX2M U102 ( .A(present_state[1]), .Y(n134) );
-  NAND4X2M U103 ( .A(n55), .B(n43), .C(n56), .D(n57), .Y(next_state[2]) );
-  AOI21BX2M U104 ( .A0(n62), .A1(n53), .B0N(n63), .Y(n56) );
-  AOI221XLM U105 ( .A0(n49), .A1(n32), .B0(n132), .B1(i_RX_D_VLD), .C0(n52), 
+  NAND3X2M U99 ( .A(n68), .B(n69), .C(present_state[2]), .Y(n59) );
+  NAND3X2M U100 ( .A(present_state[2]), .B(n68), .C(n85), .Y(n41) );
+  INVX2M U101 ( .A(present_state[1]), .Y(n134) );
+  NAND4X2M U102 ( .A(n55), .B(n43), .C(n56), .D(n57), .Y(next_state[2]) );
+  AOI21BX2M U103 ( .A0(n62), .A1(n53), .B0N(n63), .Y(n56) );
+  AOI221XLM U104 ( .A0(n49), .A1(n32), .B0(n132), .B1(i_RX_D_VLD), .C0(n52), 
         .Y(n57) );
-  NAND4X2M U106 ( .A(n45), .B(n46), .C(n47), .D(n48), .Y(next_state[3]) );
-  NAND4X2M U107 ( .A(i_RX_P_DATA[4]), .B(i_RX_P_DATA[0]), .C(n53), .D(n54), 
+  NAND4X2M U105 ( .A(n45), .B(n46), .C(n47), .D(n48), .Y(next_state[3]) );
+  NAND4X2M U106 ( .A(i_RX_P_DATA[4]), .B(i_RX_P_DATA[0]), .C(n53), .D(n54), 
         .Y(n45) );
-  AOI21X2M U108 ( .A0(i_RdData_Valid), .A1(o_RdEn), .B0(n52), .Y(n47) );
-  NOR4BX1M U109 ( .AN(n42), .B(next_state[4]), .C(o_ALU_EN), .D(n49), .Y(n48)
+  AOI21X2M U107 ( .A0(i_RdData_Valid), .A1(o_RdEn), .B0(n52), .Y(n47) );
+  NOR4BX1M U108 ( .AN(n42), .B(next_state[4]), .C(o_ALU_EN), .D(n49), .Y(n48)
          );
-  NAND2X2M U110 ( .A(n65), .B(n66), .Y(next_state[1]) );
-  NOR4X1M U111 ( .A(n67), .B(n132), .C(o_WrEn), .D(n49), .Y(n66) );
-  AOI211X2M U112 ( .A0(n33), .A1(i_RX_D_VLD), .B0(n72), .C0(n73), .Y(n65) );
-  OAI31X1M U113 ( .A0(n64), .A1(n61), .A2(n62), .B0(n55), .Y(n67) );
-  NAND3BX2M U114 ( .AN(n74), .B(n75), .C(n76), .Y(next_state[0]) );
-  NOR4BX1M U115 ( .AN(n46), .B(n77), .C(n78), .D(n33), .Y(n76) );
-  OAI222X1M U116 ( .A0(i_OUT_Valid), .A1(n50), .B0(i_FIFO_FULL), .B1(n36), 
+  NAND2X2M U109 ( .A(n65), .B(n66), .Y(next_state[1]) );
+  NOR4X1M U110 ( .A(n67), .B(n132), .C(o_WrEn), .D(n49), .Y(n66) );
+  AOI211X2M U111 ( .A0(n33), .A1(i_RX_D_VLD), .B0(n72), .C0(n73), .Y(n65) );
+  OAI31X1M U112 ( .A0(n64), .A1(n61), .A2(n62), .B0(n55), .Y(n67) );
+  NAND3BX2M U113 ( .AN(n74), .B(n75), .C(n76), .Y(next_state[0]) );
+  NOR4BX1M U114 ( .AN(n46), .B(n77), .C(n78), .D(n33), .Y(n76) );
+  OAI222X1M U115 ( .A0(i_OUT_Valid), .A1(n50), .B0(i_FIFO_FULL), .B1(n36), 
         .C0(i_RX_D_VLD), .C1(n63), .Y(n74) );
-  AOI211X2M U117 ( .A0(n128), .A1(i_RX_D_VLD), .B0(n73), .C0(n44), .Y(n75) );
+  AOI211X2M U116 ( .A0(n128), .A1(i_RX_D_VLD), .B0(n73), .C0(n44), .Y(n75) );
+  INVX2M U117 ( .A(present_state[0]), .Y(n127) );
   AOI21X2M U118 ( .A0(n11), .A1(n40), .B0(n39), .Y(o_Address[1]) );
   NOR4X1M U119 ( .A(n25), .B(n29), .C(i_RX_P_DATA[1]), .D(i_RX_P_DATA[5]), .Y(
         n54) );
@@ -1808,8 +1808,8 @@ module SYS_CTRL_DATA_WIDTH8_ADDR_WIDTH4_ALU_FUN_WIDTH4 ( i_CLK, i_RST,
   CLKBUFX2M U144 ( .A(o_ALU_FUN[2]), .Y(o_WrData[2]) );
   CLKBUFX2M U145 ( .A(o_ALU_FUN[1]), .Y(o_WrData[1]) );
   CLKBUFX2M U146 ( .A(o_ALU_FUN[0]), .Y(o_WrData[0]) );
-  CLKBUFX2M U147 ( .A(o_CLK_EN), .Y(o_ALU_EN) );
-  INVX2M U148 ( .A(n50), .Y(o_CLK_EN) );
+  CLKBUFX2M U147 ( .A(o_ALU_EN), .Y(o_CLK_EN) );
+  INVX2M U148 ( .A(n50), .Y(o_ALU_EN) );
 endmodule
 
 
@@ -3200,10 +3200,9 @@ endmodule
 module CLK_GATING ( i_CLK, i_CLK_EN, o_GATED_CLK );
   input i_CLK, i_CLK_EN;
   output o_GATED_CLK;
-  wire   Latch_Out;
 
-  TLATNX2M Latch_Out_reg ( .D(i_CLK_EN), .GN(i_CLK), .Q(Latch_Out) );
-  AND2X2M U2 ( .A(Latch_Out), .B(i_CLK), .Y(o_GATED_CLK) );
+
+  TLATNCAX12M U0_TLATNCAX12M ( .E(i_CLK_EN), .CK(i_CLK), .ECK(o_GATED_CLK) );
 endmodule
 
 

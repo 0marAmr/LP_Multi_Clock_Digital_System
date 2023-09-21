@@ -18,10 +18,8 @@ puts "###########################################"
 
 #Add the Paths of the libraries and RTL Files to the search_path variable
 
-set PROJECT_PATH "/home/IC/Low_Power_Configurable_Multi_Clock_Digital_System"
-set LIB_PATH     /home/IC/tsmc_fb_cl013g_sc/aci/sc-m
+set PROJECT_PATH "/home/IC/LP_Multi_Clk_Digital_System"
 
-lappend search_path "$LIB_PATH/synopsys"
 lappend search_path "$PROJECT_PATH/rtl"
 lappend search_path "$PROJECT_PATH/rtl/UART"
 lappend search_path "$PROJECT_PATH/rtl/ASYNC_FIFO"
@@ -48,49 +46,49 @@ puts "###########################################"
 set file_format "verilog"
 
 # UART
-analyze -format $file_format RX_DATA_SAMPLING.v
-analyze -format $file_format RX_DESERIALIZER.v
-analyze -format $file_format RX_FSM.v
-analyze -format $file_format RX_PARITY_CHECK.v
-analyze -format $file_format RX_EDGE_BIT_COUNTER.v
-analyze -format $file_format RX_START_CHECK.v
-analyze -format $file_format RX_STOP_CHECK.v
-analyze -format $file_format TX_FSM.v
-analyze -format $file_format TX_OUTPUT.v
-analyze -format $file_format TX_PARITY_CALC.v
-analyze -format $file_format TX_SERIALIZER.v
-analyze -format $file_format UART_RX.v
-analyze -format $file_format UART_TX.v
-analyze -format $file_format UART.v
+analyze -format $file_format "RX_DATA_SAMPLING.v"
+analyze -format $file_format "RX_DESERIALIZER.v"
+analyze -format $file_format "RX_FSM.v"
+analyze -format $file_format "RX_PARITY_CHECK.v"
+analyze -format $file_format "RX_EDGE_BIT_COUNTER.v"
+analyze -format $file_format "RX_START_CHECK.v"
+analyze -format $file_format "RX_STOP_CHECK.v"
+analyze -format $file_format "TX_FSM.v"
+analyze -format $file_format "TX_OUTPUT.v"
+analyze -format $file_format "TX_PARITY_CALC.v"
+analyze -format $file_format "TX_SERIALIZER.v"
+analyze -format $file_format "UART_RX.v"
+analyze -format $file_format "UART_TX.v"
+analyze -format $file_format "UART.v"
 # ASYNC_FIFO
-analyze -format $file_format ASYNC_FIFO_MEMORY.v
-analyze -format $file_format ASYNC_FIFO_BIT_SYNC.v
-analyze -format $file_format ASYNC_FIFO_RD.v
-analyze -format $file_format ASYNC_FIFO_WR.v
-analyze -format $file_format ASYNC_FIFO.v
+analyze -format $file_format "ASYNC_FIFO_MEMORY.v"
+analyze -format $file_format "ASYNC_FIFO_BIT_SYNC.v"
+analyze -format $file_format "ASYNC_FIFO_RD.v"
+analyze -format $file_format "ASYNC_FIFO_WR.v"
+analyze -format $file_format "ASYNC_FIFO.v"
 # DATA_SYNC
-analyze -format $file_format DATA_SYNC_EN_SYNC.v
-analyze -format $file_format DATA_SYNC_OP.v
-analyze -format $file_format DATA_SYNC_PULSE_GEN.v
-analyze -format $file_format DATA_SYNC.v
+analyze -format $file_format "DATA_SYNC_EN_SYNC.v"
+analyze -format $file_format "DATA_SYNC_OP.v"
+analyze -format $file_format "DATA_SYNC_PULSE_GEN.v"
+analyze -format $file_format "DATA_SYNC.v"
 # CLK_DIVIDER
-analyze -format $file_format CLK_DIV.v
+analyze -format $file_format "CLK_DIV.v"
 # CLK_GATING
-analyze -format $file_format CLK_GATING.v
+analyze -format $file_format "CLK_GATING.v"
 # PRESCALE_CONVERTER
-analyze -format $file_format Prescale_to_DivRatio.v
+analyze -format $file_format "Prescale_to_DivRatio.v"
 # PULSE_GENERATOR
-analyze -format $file_format PULSE_GEN.v
+analyze -format $file_format "PULSE_GEN.v"
 # REGISTER_FILE
-analyze -format $file_format Register_File.v
+analyze -format $file_format "Register_File.v"
 # RST_SYNC
-analyze -format $file_format RST_SYNC.v
+analyze -format $file_format "RST_SYNC.v"
 # ALU
-analyze -format $file_format ALU.v
+analyze -format $file_format "ALU.v"
 #SYS_CONTROLLER
-analyze -format $file_format SYS_CTRL.v
+analyze -format $file_format "SYS_CTRL.v"
 #SYS_TOP
-analyze -format $file_format SYS_TOP.v
+analyze -format $file_format "SYS_TOP.v"
 
 elaborate -lib WORK SYS_TOP
 
@@ -141,11 +139,17 @@ write_sdc  -nosplit "sdc/$top_module.sdc"
 
 
 ####################### reporting ##########################################
-    
+
 report_area -hierarchy > reports/area.rpt
 report_power -hierarchy > reports/power.rpt
 report_timing -delay_type min -max_paths 20 > reports/hold.rpt
 report_timing -delay_type max -max_paths 20 > reports/setup.rpt
 report_clock -attributes > reports/clocks.rpt
 report_constraint -all_violators -nosplit > reports/constraints.rpt
+
+################# starting graphical user interface #######################
+
+#gui_start
+
+#exit
 
