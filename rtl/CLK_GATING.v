@@ -13,4 +13,10 @@ module CLK_GATING (
 
     assign  o_GATED_CLK = i_CLK && Latch_Out ;
 
+// TLATNCAX12M U0_TLATNCAX12M (
+// .E(CLK_EN),
+// .CK(CLK),
+// .ECK(GATED_CLK)
+// );
+
 endmodule
