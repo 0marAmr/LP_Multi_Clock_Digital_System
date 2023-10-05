@@ -31,7 +31,10 @@ module Register_File #(
             o_RdData_Valid <= 'b0;
 
             /*default values*/
-                Reg_File[3]         <= 'd32;        /*Div Ratio*/
+            Reg_File[0]         <= 'b0;        
+            Reg_File[1]         <= 'b0;        
+            Reg_File[2]         <= 'b0;        
+            Reg_File[3]         <= 'd32;        /*Div Ratio*/
         end
         else if(i_WrEn) begin
             Reg_File[i_Address] <= i_WrData;

@@ -1,4 +1,4 @@
-module SYS_TOP  #(
+module SYS_TOP_DFT  #(
     parameter   DATA_WIDTH      = 8,
                 ALU_FUN_WIDTH   = 4,
                 REG_ADDR_WIDTH  = 4,
@@ -27,12 +27,8 @@ module SYS_TOP  #(
     output  wire [SCAN_CHAIN_WIDTH-1:0] SO
 );
 
+    /////////////////////////// DFT WIRES ///////////////////////////////
 
-
-    ///////////////////////////////////////////////////////////////
-    /////////////////////////// DFT ///////////////////////////////
-    ///////////////////////////////////////////////////////////////
-    
     wire REF_CLK_M;
     wire UART_CLK_M;
     wire TX_CLK_M;
@@ -40,60 +36,10 @@ module SYS_TOP  #(
     wire ALU_CLK_M;
     wire RST_M;
 
-    mux2X1 U0_mux2X1 (
-	    .IN_0(REF_CLK),
-	    .IN_1(scan_clk),
-	    .SEL(test_mode),
-	    .OUT(REF_CLK_M)
-    );
-
-    mux2X1 U1_mux2X1 (
-	    .IN_0(UART_CLK),
-	    .IN_1(scan_clk),
-	    .SEL(test_mode),
-	    .OUT(UART_CLK_M)
-    );
-
-    
-    mux2X1 U2_mux2X1 (
-	    .IN_0(TX_CLK),
-	    .IN_1(scan_clk),
-	    .SEL(test_mode),
-	    .OUT(TX_CLK_M)
-    );
-
-     mux2X1 U3_mux2X1 (
-	    .IN_0(RX_CLK),
-	    .IN_1(scan_clk),
-	    .SEL(test_mode),
-	    .OUT(RX_CLK_M)
-    );
-    
-     mux2X1 U4_mux2X1 (
-	    .IN_0(RST),
-	    .IN_1(scan_rst),
-	    .SEL(test_mode),
-	    .OUT(RST_M)
-    );       
-
-     mux2X1 U5_mux2X1 (
-	    .IN_0(REF_SYNC_RST),
-	    .IN_1(scan_rst),
-	    .SEL(test_mode),
-	    .OUT(REF_SYNC_RST_M)
-    ); 
-
-     mux2X1 U6_mux2X1 (
-	    .IN_0(UART_SYNC_RST),
-	    .IN_1(scan_rst),
-	    .SEL(test_mode),
-	    .OUT(UART_SYNC_RST_M)
-    );   
     ///////////////////////////////////////////////////////////////
     /////////////////////////// ALU ///////////////////////////////
     ///////////////////////////////////////////////////////////////
- 
-    wire ALU_CLK;
+
     wire REF_SYNC_RST;
     wire UART_SYNC_RST;
     wire [DATA_WIDTH-1:0] Op_A;
@@ -102,6 +48,7 @@ module SYS_TOP  #(
     wire ALU_EN;
     wire [2*DATA_WIDTH-1:0] ALU_OUT;
     wire OUT_Valid;
+
 
     ALU #(
         .DATA_WIDTH(DATA_WIDTH)
@@ -203,8 +150,8 @@ module SYS_TOP  #(
     UART #(
         .DATA_WIDTH(DATA_WIDTH)
     ) U3_UART_INTERFACE (
-        .i_TX_CLK(TX_CLK),
-        .i_RX_CLK(RX_CLK),
+        .i_TX_CLK(TX_CLK_M),
+        .i_RX_CLK(RX_CLK_M),
         .i_RST(UART_SYNC_RST_M),
         .i_PAR_EN(UART_Config[0]),
         .i_TX_Data_Valid(~FIFO_Empty),
@@ -233,7 +180,7 @@ module SYS_TOP  #(
         .i_W_RST(REF_SYNC_RST_M),
         .i_W_INC(FIFO_Wr_Inc),
         .i_WR_DATA(FIFO_WR_DATA),
-        .i_R_CLK(TX_CLK),
+        .i_R_CLK(TX_CLK_M),
         .i_R_RST(UART_SYNC_RST_M),
         .i_R_INC(Pulse_Gen_RD_INC),
         .o_FULL(FIFO_FULL),
@@ -246,7 +193,7 @@ module SYS_TOP  #(
     /////////////////////////////////////////////////////////////
  
     PULSE_GEN U5_RD_INC_PULSE_GEN (
-        .i_CLK(TX_CLK),
+        .i_CLK(TX_CLK_M),
         .i_RST(UART_SYNC_RST_M),
         .i_pulse_en(TX_Busy),
         .o_pulse_signal(Pulse_Gen_RD_INC)
@@ -276,15 +223,15 @@ module SYS_TOP  #(
         .NUM_STAGES(2)
     ) U7_REF_RST_SYNC (
         .i_CLK(REF_CLK_M),
-        .i_RST(RST),
+        .i_RST(RST_M),
         .o_SYNC_RST(REF_SYNC_RST)
     );
 
     RST_SYNC #(
         .NUM_STAGES(2)
     ) U8_UART_RST_SYNC (
-        .i_CLK(UART_CLK),
-        .i_RST(RST),
+        .i_CLK(UART_CLK_M),
+        .i_RST(RST_M),
         .o_SYNC_RST(UART_SYNC_RST)
     );
 
@@ -297,7 +244,7 @@ module SYS_TOP  #(
     CLK_DIV #(
         .DIV_RATIO_WIDTH(8)
     ) U9_RX_CLK_DIV(
-        .i_ref_clk(UART_CLK),
+        .i_ref_clk(UART_CLK_M),
         .i_rst_n(UART_SYNC_RST_M),
         .i_clk_en(Clk_Div_En),
         .i_div_ratio(RX_CLK_Div_Ratio),
@@ -307,7 +254,7 @@ module SYS_TOP  #(
     CLK_DIV #(
         .DIV_RATIO_WIDTH(8)
     ) U10_TX_CLK_DIV(
-        .i_ref_clk(UART_CLK),
+        .i_ref_clk(UART_CLK_M),
         .i_rst_n(UART_SYNC_RST_M),
         .i_clk_en(Clk_Div_En),
         .i_div_ratio(Div_Ratio),
@@ -328,9 +275,62 @@ module SYS_TOP  #(
     ///////////////////////////////////////////////////////////////////
 
     CLK_GATING U_12_CLK_GATE (
-        .i_CLK(REF_CLK),
+        .i_CLK(REF_CLK_M),
         .i_CLK_EN(Gate_En | test_mode),
         .o_GATED_CLK(ALU_CLK)
     );
+
+    ///////////////////////////////////////////////////////////////
+    /////////////////////////// DFT ///////////////////////////////
+    ///////////////////////////////////////////////////////////////
+
+    mux2X1 U0_mux2X1 (
+	    .IN_0(REF_CLK),
+	    .IN_1(scan_clk),
+	    .SEL(test_mode),
+	    .OUT(REF_CLK_M)
+    );
+
+    mux2X1 U1_mux2X1 (
+	    .IN_0(UART_CLK),
+	    .IN_1(scan_clk),
+	    .SEL(test_mode),
+	    .OUT(UART_CLK_M)
+    );
+
+    mux2X1 U2_mux2X1 (
+	    .IN_0(TX_CLK),
+	    .IN_1(scan_clk),
+	    .SEL(test_mode),
+	    .OUT(TX_CLK_M)
+    );
+
+     mux2X1 U3_mux2X1 (
+	    .IN_0(RX_CLK),
+	    .IN_1(scan_clk),
+	    .SEL(test_mode),
+	    .OUT(RX_CLK_M)
+    );
+    
+     mux2X1 U4_mux2X1 (
+	    .IN_0(RST),
+	    .IN_1(scan_rst),
+	    .SEL(test_mode),
+	    .OUT(RST_M)
+    );       
+
+     mux2X1 U5_mux2X1 (
+	    .IN_0(REF_SYNC_RST),
+	    .IN_1(scan_rst),
+	    .SEL(test_mode),
+	    .OUT(REF_SYNC_RST_M)
+    ); 
+
+     mux2X1 U6_mux2X1 (
+	    .IN_0(UART_SYNC_RST),
+	    .IN_1(scan_rst),
+	    .SEL(test_mode),
+	    .OUT(UART_SYNC_RST_M)
+    );   
 
 endmodule
