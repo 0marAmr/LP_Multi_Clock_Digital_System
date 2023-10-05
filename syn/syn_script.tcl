@@ -122,7 +122,7 @@ puts "###############################################"
 puts "########## Mapping & Optimization #############"
 puts "###############################################"
 
-compile
+compile_ultra -no_auto_ungroup
 
 ##################### Close Formality Setup file ###########################
 
@@ -146,6 +146,16 @@ report_timing -delay_type min -max_paths 20 > reports/hold.rpt
 report_timing -delay_type max -max_paths 20 > reports/setup.rpt
 report_clock -attributes > reports/clocks.rpt
 report_constraint -all_violators -nosplit > reports/constraints.rpt
+
+############################################################################
+# DFT Preparation Section
+############################################################################
+
+set flops_per_chain 100
+
+set num_flops [sizeof_collection [all_registers -edge_triggered]]
+
+set num_chains [expr $num_flops / $flops_per_chain + 1 ]
 
 ################# starting graphical user interface #######################
 
