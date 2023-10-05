@@ -13,4 +13,4 @@ xsim_1.c
 specs
 std_cells
 syn/work
-*.svf
+dft/work
