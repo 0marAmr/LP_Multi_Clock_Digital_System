@@ -96,3 +96,5 @@ set_output_delay -clock scan_clk  20  [get_ports {SO[2]}]
 set_output_delay -clock scan_clk  20  [get_ports {SO[1]}]
 set_output_delay -clock scan_clk  20  [get_ports {SO[0]}]
 set_clock_groups -asynchronous -name REF_CLK_1 -group [list [get_clocks REF_CLK] [get_clocks ALU_CLK]] -group [list [get_clocks UART_CLK] [get_clocks RX_CLK] [get_clocks TX_CLK]] -group [get_clocks scan_clk]
+set_case_analysis 1 SE
+set_case_analysis 1 test_mode
