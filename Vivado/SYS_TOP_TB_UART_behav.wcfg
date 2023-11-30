@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="134.727 ns"></ZoomStartTime>
-      <ZoomEndTime time="193.778 ns"></ZoomEndTime>
-      <Cursor1Time time="159.727 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,634.939 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="230"></NameColumnWidth>
-      <ValueColumnWidth column_width="134"></ValueColumnWidth>
+      <ValueColumnWidth column_width="129"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="8" />
+   <WVObjectSize size="18" />
    <wvobject fp_name="/SYS_TOP_TB/UART_CLK_TB" type="logic">
       <obj_property name="ElementShortName">UART_CLK_TB</obj_property>
       <obj_property name="ObjectShortName">UART_CLK_TB</obj_property>
@@ -27,7 +27,7 @@
    <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/i_TX_CLK" type="logic">
       <obj_property name="ElementShortName">i_TX_CLK</obj_property>
       <obj_property name="ObjectShortName">i_TX_CLK</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/i_RX_CLK" type="logic">
@@ -49,7 +49,7 @@
    <wvobject fp_name="/SYS_TOP_TB/TX_OUT_TB" type="logic">
       <obj_property name="ElementShortName">TX_OUT_TB</obj_property>
       <obj_property name="ObjectShortName">TX_OUT_TB</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/o_RX_Data_Valid" type="logic">
@@ -63,5 +63,45 @@
       <obj_property name="ObjectShortName">o_RX_OUT[7:0]</obj_property>
       <obj_property name="CustomSignalColor">#0000FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/U1_RX/U1_FSM/current_state" type="array">
+      <obj_property name="ElementShortName">current_state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/U1_RX/par_chk_en" type="logic">
+      <obj_property name="ElementShortName">par_chk_en</obj_property>
+      <obj_property name="ObjectShortName">par_chk_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/U1_RX/U0_PAR_CHK/sampling_done" type="logic">
+      <obj_property name="ElementShortName">sampling_done</obj_property>
+      <obj_property name="ObjectShortName">sampling_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/U1_RX/U1_FSM/Data_Valid" type="logic">
+      <obj_property name="ElementShortName">Data_Valid</obj_property>
+      <obj_property name="ObjectShortName">Data_Valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/U1_RX/stp_err" type="logic">
+      <obj_property name="ElementShortName">stp_err</obj_property>
+      <obj_property name="ObjectShortName">stp_err</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/U1_RX/U0_PAR_CHK/sampled_bit" type="logic">
+      <obj_property name="ElementShortName">sampled_bit</obj_property>
+      <obj_property name="ObjectShortName">sampled_bit</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/U1_RX/U0_PAR_CHK/par_res" type="logic">
+      <obj_property name="ElementShortName">par_res</obj_property>
+      <obj_property name="ObjectShortName">par_res</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/DUT/U3_UART_INTERFACE/U1_RX/par_err" type="logic">
+      <obj_property name="ElementShortName">par_err</obj_property>
+      <obj_property name="ObjectShortName">par_err</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/RECEIVED_FRAME" type="array">
+      <obj_property name="ElementShortName">RECEIVED_FRAME[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RECEIVED_FRAME[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SYS_TOP_TB/ALU_OP_RESULT" type="array">
+      <obj_property name="ElementShortName">ALU_OP_RESULT[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_OP_RESULT[15:0]</obj_property>
    </wvobject>
 </wave_config>
